@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Лабораторна робота 1</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #0f172a;
+            --card-bg: rgba(30, 41, 59, 0.7);
+            --card-border: rgba(255, 255, 255, 0.08);
+            --text-primary: #f8fafc;
+            --text-secondary: #94a3b8;
+            --accent-blue: #38bdf8;
+            --accent-indigo: #818cf8;
+            --accent-purple: #c084fc;
+            --btn-grad: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+            --btn-hover: linear-gradient(135deg, #60a5fa 0%, #3b82f6 100%);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Inter', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            background-image: 
+                radial-gradient(at 0% 0%, rgba(56, 189, 248, 0.12) 0px, transparent 50%),
+                radial-gradient(at 100% 100%, rgba(192, 132, 252, 0.12) 0px, transparent 50%);
+            background-attachment: fixed;
+            color: var(--text-primary);
+            padding: 40px 20px;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .header {
+            background: var(--card-bg);
+            backdrop-filter: blur(12px);
+            border: 1px solid var(--card-border);
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3);
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 10px;
+        }
+
+        .user-info {
+            display: inline-flex;
+            gap: 15px;
+            margin-top: 15px;
+            background: rgba(255, 255, 255, 0.05);
+            padding: 8px 20px;
+            border-radius: 30px;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .user-info strong {
+            color: var(--accent-blue);
+        }
+
+        .level-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin: 35px 0 15px 5px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--accent-blue);
+        }
+
+        .card {
+            background: var(--card-bg);
+            backdrop-filter: blur(12px);
+            border: 1px solid var(--card-border);
+            border-radius: 16px;
+            padding: 20px;
+            margin-bottom: 15px;
+            transition: transform 0.2s ease, border-color 0.2s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-2px);
+            border-color: rgba(56, 189, 248, 0.3);
+        }
+
+        .card h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 6px;
+            color: #e2e8f0;
+        }
+
+        .card p.desc {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            margin-bottom: 15px;
+        }
+
+        .btn {
+            background: var(--btn-grad);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+        }
+
+        .btn:hover {
+            background: var(--btn-hover);
+            box-shadow: 0 6px 16px rgba(56, 189, 248, 0.4);
+            transform: scale(1.02);
+        }
+
+        .output {
+            margin-top: 15px;
+            padding: 12px 16px;
+            border-radius: 10px;
+            background: rgba(15, 23, 42, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            font-size: 0.95rem;
+            color: #cbd5e1;
+            min-height: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        th, td {
+            padding: 10px 14px;
+            text-align: left;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        th {
+            background: rgba(255, 255, 255, 0.05);
+            color: var(--accent-blue);
+            font-weight: 600;
+        }
+
+        tr:hover {
+            background: rgba(255, 255, 255, 0.02);
+        }
+
+        .letters-container {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-top: 10px;
+        }
+
+        .letter-box {
+            background: linear-gradient(135deg, rgba(56, 189, 248, 0.1), rgba(129, 140, 248, 0.1));
+            border: 1px solid var(--accent-blue);
+            color: var(--accent-blue);
+            font-weight: 700;
+            font-size: 1.2rem;
+            width: 45px;
+            height: 45px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .letter-box:hover {
+            background: var(--accent-blue);
+            color: #0f172a;
+            transform: scale(1.1) rotate(3deg);
+            box-shadow: 0 0 15px var(--accent-blue);
+        }
+
+        ul, ol {
+            padding-left: 20px;
+        }
+
+        li {
+            margin-bottom: 6px;
+            color: #e2e8f0;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="header">
+        <h1>Лабораторна робота 1</h1>
+        <p style="color: var(--text-secondary);">Інтерактивна панель виконання завдання</p>
+        <div class="user-info">
+            <span>👤 Студентка: <strong>Яремин Дарина</strong></span>
+            <span>📋 Номер у журналі: <strong>15</strong></span>
+        </div>
+    </div>
+
+    <div class="level-title">⚡ Рівень 1 (4–6 балів)</div>
+
+    <div class="card">
+        <h3>Завдання 1: Вітання у браузері</h3>
+        <p class="desc">Викликає alert, а після підтвердження виводить вітальний текст.</p>
+        <button class="btn" onclick="task4_1()">Запустити</button>
+        <div id="out4_1" class="output" style="display:none;"></div>
+    </div>
+
+    <div class="card">
+        <h3>Завдання 2: Перевірка натиснутої кнопки</h3>
+        <p class="desc">Відображає діалог confirm() та фіксує ваш вибір.</p>
+        <button class="btn" onclick="task4_2()">Запустити confirm()</button>
+        <div id="out4_2" class="output" style="display:none;"></div>
+    </div>
+
+    <div class="card">
+        <h3>Завдання 3: Таблиця множення</h3>
+        <p class="desc">Будує красиву таблицю множення для числа 5.</p>
+        <button class="btn" onclick="task4_3()">Згенерувати таблицю</button>
+        <div id="out4_3" class="output" style="display:none;"></div>
+    </div>
+
+    <div class="level-title">🔥 Рівень 2 (7–9 балів)</div>
+
+    <div class="card">
+        <h3>Завдання 1: Парне чи непарне число</h3>
+        <p class="desc">Аналізує ваш номер у журналі (15) та підсвічує результат відповідним кольором.</p>
+        <button class="btn" onclick="task7_1()">Перевірити номер (15)</button>
+        <div id="out7_1" class="output" style="display:none;"></div>
+    </div>
+
+    <div class="card">
+        <h3>Завдання 2: Генератор пароля</h3>
+        <p class="desc">Генерує пароль за формулою: перші 3 літери імені + (номер * 2).</p>
+        <button class="btn" onclick="task7_2()">Згенерувати пароль</button>
+        <div id="out7_2" class="output" style="display:none;"></div>
+    </div>
+
+    <div class="card">
+        <h3>Завдання 3: Середній бал з 3 оцінок</h3>
+        <p class="desc">Запитує 3 оцінки та створює блок з id = вашому номеру журналу.</p>
+        <button class="btn" onclick="task7_3()">Розрахувати середній бал</button>
+        <div id="out7_3_wrap"></div>
+    </div>
+
+    <div class="card">
+        <h3>Завдання 4: Введення студентів групи</h3>
+        <p class="desc">Запитує кількість студентів та їхні ПІБ, виводячи їх у список.</p>
+        <button class="btn" onclick="task7_4()">Запустити введення</button>
+        <div id="out7_4" class="output" style="display:none;"></div>
+    </div>
+
+    <div class="level-title">🚀 Рівень 3 (10–12 балів)</div>
+
+    <div class="card">
+        <h3>Завдання 1: Список літер імені з подій mouseover</h3>
+        <p class="desc">Створює список літер. Наведіть курсор на літеру, щоб побачити alert.</p>
+        <button class="btn" onclick="task10_1()">Створити список літер</button>
+        <div id="out10_1" class="output" style="display:none;"></div>
+    </div>
+
+    <div class="card">
+        <h3>Завдання 2: Введення імен до натискання "Відміна"</h3>
+        <p class="desc">Зчитує дані у циклі, поки користувач не скасує введення.</p>
+        <button class="btn" onclick="task10_2()">Запустити цикл</button>
+        <div id="out10_2" class="output" style="display:none;"></div>
+    </div>
+
+    <div class="card">
+        <h3>Завдання 3: Перемикач блоків літер прізвища</h3>
+        <p class="desc">Створює інтерактивні плашки для літер прізвища "Яремин" з повторним очищенням.</p>
+        <button id="toggleBtn" class="btn">Показати блоки</button>
+        <div id="letters" class="letters-container"></div>
+    </div>
+</div>
+
+<script>
+    const userFirstName = "Дарина";
+    const userLastName = "Яремин";
+    const journalNumber = 15;
+
+    function task4_1() {
+        alert("Ласкаво просимо!");
+        const el = document.getElementById("out4_1");
+        el.style.display = "block";
+        el.innerHTML = `Hello, <strong>${userLastName} ${userFirstName}</strong>!`;
+    }
+
+    function task4_2() {
+        const res = confirm("Натисніть OK або Відміна");
+        const el = document.getElementById("out4_2");
+        el.style.display = "block";
+        el.innerHTML = res ? "Ви натиснули <strong>'ОК'</strong>" : "Ви натиснули <strong>'Відміна'</strong>";
+    }
+
+    function task4_3() {
+        const num = journalNumber % 10;
+        let html = `<h4 style="margin-bottom:10px; color:var(--accent-blue);">Таблиця множення для числа ${num}</h4><table><thead><tr><th>Вираз</th><th>Результат</th></tr></thead><tbody>`;
+        for (let i = 1; i <= 10; i++) {
+            html += `<tr><td>${num} × ${i}</td><td><strong>${num * i}</strong></td></tr>`;
+        }
+        html += `</tbody></table>`;
+        const el = document.getElementById("out4_3");
+        el.style.display = "block";
+        el.innerHTML = html;
+    }
+
+    function task7_1() {
+        const isEven = journalNumber % 2 === 0;
+        const color = isEven ? "#4ade80" : "#f87171";
+        const status = isEven ? "парним" : "непарним";
+        
+        const el = document.getElementById("out7_1");
+        el.style.display = "block";
+        el.innerHTML = `<p style="color: ${color}; font-weight: 600;">Число ${journalNumber} є ${status}.</p>`;
+    }
+
+    function task7_2() {
+        const prefix = userFirstName.substring(0, 3);
+        const password = prefix + (journalNumber * 2);
+        
+        const el = document.getElementById("out7_2");
+        el.style.display = "block";
+        el.innerHTML = `🔑 Згенерований пароль: <strong style="color:var(--accent-blue);">${password}</strong>`;
+    }
+
+    function task7_3() {
+        const g1 = parseFloat(prompt("Введіть першу оцінку:"));
+        const g2 = parseFloat(prompt("Введіть другу оцінку:"));
+        const g3 = parseFloat(prompt("Введіть третю оцінку:"));
+
+        if (isNaN(g1) || isNaN(g2) || isNaN(g3)) {
+            alert("Будь ласка, введіть числові значення!");
+            return;
+        }
+
+        const avg = ((g1 + g2 + g3) / 3).toFixed(2);
+        
+        const old = document.getElementById(journalNumber.toString());
+        if (old) old.remove();
+
+        const container = document.createElement("div");
+        container.id = journalNumber.toString();
+        container.className = "output";
+        container.style.marginTop = "15px";
+        container.innerHTML = `📊 Динамічний блок <strong>id="${journalNumber}"</strong>: Середній бал = <strong style="color:var(--accent-blue);">${avg}</strong>`;
+        
+        document.getElementById("out7_3_wrap").appendChild(container);
+    }
+
+    function task7_4() {
+        const count = parseInt(prompt("Введіть кількість студентів:"), 10);
+        if (isNaN(count) || count <= 0) return;
+
+        const el = document.getElementById("out7_4");
+        el.style.display = "block";
+        el.innerHTML = "";
+        
+        const ol = document.createElement("ol");
+        for (let i = 0; i < count; i++) {
+            const name = prompt(`Введіть ПІБ студента №${i + 1}:`);
+            if (name) {
+                const li = document.createElement("li");
+                li.textContent = name;
+                ol.appendChild(li);
+            }
+        }
+        el.appendChild(ol);
+    }
+
+    function task10_1() {
+        const el = document.getElementById("out10_1");
+        el.style.display = "block";
+        el.innerHTML = "";
+        
+        const ul = document.createElement("ul");
+        ul.style.display = "flex";
+        ul.style.gap = "15px";
+        ul.style.listStyle = "none";
+        ul.style.padding = "0";
+
+        for (let char of userFirstName) {
+            const li = document.createElement("li");
+            li.textContent = char;
+            li.className = "letter-box";
+            li.addEventListener("mouseover", () => alert(`Літера імені: ${char}`));
+            ul.appendChild(li);
+        }
+        el.appendChild(ul);
+    }
+
+    function task10_2() {
+        const el = document.getElementById("out10_2");
+        el.style.display = "block";
+        el.innerHTML = "";
+        
+        const ul = document.createElement("ul");
+        while (true) {
+            const input = prompt("Введіть ПІБ студента (або натисніть 'Відміна'):");
+            if (input === null) break;
+            if (input.trim() !== "") {
+                const li = document.createElement("li");
+                li.textContent = input;
+                ul.appendChild(li);
+            }
+        }
+        el.appendChild(ul);
+    }
+
+    const toggleBtn = document.getElementById("toggleBtn");
+    const lettersContainer = document.getElementById("letters");
+
+    toggleBtn.addEventListener("click", () => {
+        if (lettersContainer.children.length > 0) {
+            lettersContainer.innerHTML = "";
+            toggleBtn.textContent = "Показати блоки";
+            return;
+        }
+
+        toggleBtn.textContent = "Сховати блоки";
+        for (let char of userLastName) {
+            const box = document.createElement("div");
+            box.className = "letter-box";
+            box.textContent = char;
+            box.addEventListener("mouseover", () => alert(`Це літера [ ${char} ]`));
+            lettersContainer.appendChild(box);
+        }
+    });
+</script>
+
+</body>
+</html>
