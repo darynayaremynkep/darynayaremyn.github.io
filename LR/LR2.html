@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Лабораторна робота № 2</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            margin: 0;
+            padding: 30px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        .description {
+            text-align: center;
+            color: #666;
+            margin-bottom: 30px;
+        }
+
+        .level {
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .level h2 {
+            margin-top: 0;
+        }
+
+        button {
+            padding: 10px 18px;
+            margin: 5px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            background-color: #333;
+            color: white;
+            font-size: 14px;
+        }
+
+        button:hover {
+            background-color: #555;
+        }
+
+        .result {
+            margin-top: 10px;
+            padding: 10px;
+            background-color: #f7f7f7;
+            border-radius: 6px;
+            min-height: 20px;
+        }
+
+        .info {
+            margin-top: 30px;
+            padding: 15px;
+            background-color: #f0f0f0;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>Лабораторна робота № 2</h1>
+
+
+    <!-- Рівень 4-6 -->
+    <div class="level">
+        <h2>Рівень 4–6 балів</h2>
+
+        <button onclick="task4_1()">Завдання 1</button>
+        <button onclick="task4_2()">Завдання 2</button>
+        <button onclick="task4_3()">Завдання 3</button>
+
+        <div id="result4" class="result">
+            Результат з'явиться тут.
+        </div>
+    </div>
+
+
+    <!-- Рівень 7-9 -->
+    <div class="level">
+        <h2>Рівень 7–9 балів</h2>
+
+        <button onclick="task7_1()">Завдання 1</button>
+        <button onclick="task7_2()">Завдання 2</button>
+        <button onclick="task7_3()">Завдання 3</button>
+
+        <div id="result7" class="result">
+            Результат з'явиться тут.
+        </div>
+    </div>
+
+
+    <!-- Рівень 10-12 -->
+    <div class="level">
+        <h2>Рівень 10–12 балів</h2>
+
+        <button onclick="task10_1()">Завдання 1</button>
+        <button onclick="task10_2()">Завдання 2</button>
+        <button onclick="task10_3()">Завдання 3</button>
+
+        <div id="result10" class="result">
+            Результат з'явиться тут.
+        </div>
+    </div>
+
+
+    <div class="info">
+        <strong>Примітка:</strong>
+        результати завдань, які використовують <code>alert()</code>,
+        <code>prompt()</code> та <code>confirm()</code>, відображаються
+        у відповідних діалогових вікнах. Результати <code>console.log()</code>
+        можна переглянути через F12 → Console.
+    </div>
+
+</div>
+
+
+<script>
+
+    // ==========================================
+    // РІВЕНЬ 4–6 БАЛІВ
+    // ==========================================
+
+    // Завдання 1
+    function task4_1() {
+
+        let userName = prompt("Enter your name:");
+
+        if (userName !== null) {
+            alert(`Hello, ${userName}! Welcome to JavaScript`);
+
+            document.getElementById("result4").textContent =
+                `Hello, ${userName}! Welcome to JavaScript`;
+        }
+    }
+
+
+    // Завдання 2
+    function task4_2() {
+
+        let age = Number(prompt("Enter your age:"));
+
+        let currentYear = new Date().getFullYear();
+        let birthYear = currentYear - age;
+
+        alert(`You were born in ${birthYear}`);
+
+        document.getElementById("result4").textContent =
+            `You were born in ${birthYear}`;
+    }
+
+
+    // Завдання 3
+    function task4_3() {
+
+        let firstName = prompt("Enter your first name:");
+        let lastName = prompt("Enter your last name:");
+
+        // Через +
+        console.log(
+            "Your full name is " + firstName + " " + lastName
+        );
+
+        // Через шаблонний рядок
+        console.log(
+            `Your full name is ${firstName} ${lastName}`
+        );
+
+        document.getElementById("result4").textContent =
+            `Your full name is ${firstName} ${lastName}.`;
+    }
+
+
+
+    // ==========================================
+    // РІВЕНЬ 7–9 БАЛІВ
+    // ==========================================
+
+    // Завдання 1
+    function task7_1() {
+
+        let userName = "Daryna";
+
+        if (true) {
+
+            let userName = prompt("Enter another name:");
+
+            console.log("Name inside the block:", userName);
+            console.log("Name outside the block:", window.userName);
+        }
+
+        document.getElementById("result7").textContent =
+            "Значення всередині if та зовні є різними змінними, оскільки let має блочну область видимості.";
+    }
+
+
+    // Завдання 2
+    function task7_2() {
+
+        let name = prompt("Enter your name:");
+        let userAge = Number(prompt("Enter your age:"));
+
+        let answer = confirm(
+            `Hello, ${name}! Your age is ${userAge}. Continue?`
+        );
+
+        if (answer) {
+
+            alert("Welcome!");
+
+            document.getElementById("result7").textContent =
+                "Welcome!";
+
+        } else {
+
+            alert("Goodbye!");
+
+            document.getElementById("result7").textContent =
+                "Goodbye!";
+        }
+    }
+
+
+    // Завдання 3
+    function task7_3() {
+
+        let number = Number(prompt("Enter a number:"));
+
+        if (number % 2 === 0) {
+
+            alert("Number is even");
+
+            document.getElementById("result7").textContent =
+                "Number is even";
+
+        } else {
+
+            alert("Number is odd");
+
+            document.getElementById("result7").textContent =
+                "Number is odd";
+        }
+    }
+
+
+
+    // ==========================================
+    // РІВЕНЬ 10–12 БАЛІВ
+    // ==========================================
+
+    // Завдання 1
+    function task10_1() {
+
+        function calculate() {
+
+            let result = 10;
+
+            if (true) {
+
+                let result = 20;
+
+                console.log("Result inside if:", result);
+            }
+
+            console.log("Result outside if:", result);
+
+            document.getElementById("result10").textContent =
+                "У Console буде: Result inside if: 20 та Result outside if: 10";
+        }
+
+        calculate();
+    }
+
+
+    // Завдання 2
+    function task10_2() {
+
+        const secretNumber = 15 % 10;
+
+        let userNumber = Number(
+            prompt("Enter a number from 0 to 9:")
+        );
+
+        if (userNumber === secretNumber) {
+
+            alert("Correct!");
+
+            document.getElementById("result10").textContent =
+                "Correct!";
+
+        } else {
+
+            alert("Wrong!");
+
+            document.getElementById("result10").textContent =
+                "Wrong!";
+        }
+    }
+
+
+    // Завдання 3
+    function task10_3() {
+
+        let userName = prompt("Enter your name:");
+        let number1 = Number(prompt("Enter the first number:"));
+        let number2 = Number(prompt("Enter the second number:"));
+
+        let sum = number1 + number2;
+
+        console.log(
+            "Hello, " +
+            userName +
+            "! The sum of " +
+            number1 +
+            " and " +
+            number2 +
+            " is " +
+            sum
+        );
+
+        document.getElementById("result10").textContent =
+            "Hello, " +
+            userName +
+            "! The sum of " +
+            number1 +
+            " and " +
+            number2 +
+            " is " +
+            sum;
+    }
+
+</script>
+
+</body>
+</html>
