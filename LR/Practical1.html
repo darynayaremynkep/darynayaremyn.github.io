@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Практична робота 1</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f4f6f8;
+            color: #222;
+        }
+
+        header {
+            background: #222;
+            color: white;
+            text-align: center;
+            padding: 40px 20px;
+        }
+
+        header h1 {
+            margin: 0 0 10px;
+            font-size: 32px;
+        }
+
+        header p {
+            margin: 0;
+            color: #ccc;
+        }
+
+        main {
+            max-width: 1000px;
+            margin: 30px auto;
+            padding: 0 20px;
+        }
+
+        .task {
+            background: white;
+            border-radius: 12px;
+            padding: 25px;
+            margin-bottom: 25px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+        }
+
+        .task h2 {
+            margin-top: 0;
+            color: #333;
+        }
+
+        .description {
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        .result {
+            background: #f8f9fa;
+            border-left: 4px solid #555;
+            padding: 15px;
+            border-radius: 6px;
+        }
+
+        .result h3 {
+            margin-top: 0;
+            font-size: 18px;
+        }
+
+        .item {
+            background: white;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 12px 15px;
+            margin: 8px 0;
+        }
+
+        .item strong {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .stat {
+            font-size: 20px;
+            font-weight: bold;
+            margin: 10px 0;
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            color: #777;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h1>Практична робота</h1>
+    <p>Робота з масивами об'єктів у JavaScript</p>
+</header>
+
+
+<main>
+
+    <!-- ==================== ЗАВДАННЯ 1 ==================== -->
+
+    <section class="task">
+        <h2>1. Фільтрація та пошук у масиві об'єктів</h2>
+
+        <p class="description">
+            Використано методи <b>filter()</b> та <b>find()</b>
+            для роботи з масивом товарів.
+        </p>
+
+        <div class="result">
+            <h3>Доступні товари</h3>
+            <div id="availableProducts"></div>
+
+            <h3>Результат пошуку товару</h3>
+            <div id="foundProduct"></div>
+        </div>
+    </section>
+
+
+    <!-- ==================== ЗАВДАННЯ 2 ==================== -->
+
+    <section class="task">
+        <h2>2. Групування та сортування студентів</h2>
+
+        <p class="description">
+            Студентів згруповано за групами за допомогою
+            <b>reduce()</b> та <b>push()</b>, а також виконано
+            сортування за оцінкою за допомогою <b>sort()</b>.
+        </p>
+
+        <div class="result">
+            <h3>Студенти за групами</h3>
+            <div id="groupedStudents"></div>
+
+            <h3>Студенти за оцінкою</h3>
+            <div id="sortedStudents"></div>
+        </div>
+    </section>
+
+
+    <!-- ==================== ЗАВДАННЯ 3 ==================== -->
+
+    <section class="task">
+        <h2>3. Статистичний аналіз даних</h2>
+
+        <p class="description">
+            Обчислено середню зарплату та визначено працівника
+            з найбільшим досвідом за допомогою <b>reduce()</b>.
+        </p>
+
+        <div class="result">
+            <h3>Середня зарплата</h3>
+            <div id="averageSalary" class="stat"></div>
+
+            <h3>Найбільш досвідчений працівник</h3>
+            <div id="experiencedEmployee"></div>
+        </div>
+    </section>
+
+
+    <!-- ==================== ЗАВДАННЯ 4 ==================== -->
+
+    <section class="task">
+        <h2>4. Обробка та аналіз даних про книги</h2>
+
+        <p class="description">
+            Виконано пошук непрочитаних книг, пошук книг за автором
+            та визначення книг із високим рейтингом.
+        </p>
+
+        <div class="result">
+            <h3>Непрочитані книги</h3>
+            <div id="unreadBooks"></div>
+
+            <h3>Книги Тараса Шевченка</h3>
+            <div id="authorBooks"></div>
+
+            <h3>Книги з рейтингом вище 4</h3>
+            <div id="topBooks"></div>
+        </div>
+    </section>
+
+
+    <!-- ==================== ЗАВДАННЯ 5 ==================== -->
+
+    <section class="task">
+        <h2>5. Фільтрація та маніпуляція вкладених об'єктів</h2>
+
+        <p class="description">
+            Визначено загальну суму, яку витратив конкретний клієнт,
+            використовуючи <b>filter()</b> та <b>reduce()</b>.
+        </p>
+
+        <div class="result">
+            <h3>Витрати клієнта</h3>
+            <div id="customerSpent" class="stat"></div>
+        </div>
+    </section>
+
+
+    <!-- ==================== ЗАВДАННЯ 6 ==================== -->
+
+    <section class="task">
+        <h2>6. Об'єднання та оптимізація даних</h2>
+
+        <p class="description">
+            Дані про товари та покупки об'єднано за допомогою
+            <b>reduce()</b> та <b>find()</b>.
+        </p>
+
+        <div class="result">
+            <h3>Загальна сума продажів</h3>
+            <div id="totalSales"></div>
+        </div>
+    </section>
+
+</main>
+
+
+<footer>
+    Практична робота з JavaScript
+</footer>
+
+
+<script>
+
+// =====================================================
+// 1. ФІЛЬТРАЦІЯ ТА ПОШУК ТОВАРІВ
+// =====================================================
+
+const products = [
+    {
+        name: "Ноутбук",
+        category: "Електроніка",
+        price: 30000,
+        inStock: 5
+    },
+    {
+        name: "Телефон",
+        category: "Електроніка",
+        price: 20000,
+        inStock: 0
+    },
+    {
+        name: "Навушники",
+        category: "Аксесуари",
+        price: 2500,
+        inStock: 10
+    },
+    {
+        name: "Клавіатура",
+        category: "Аксесуари",
+        price: 1500,
+        inStock: 3
+    }
+];
+
+function getAvailableProducts(products) {
+    return products.filter(product => product.inStock > 0);
+}
+
+function findProductByName(products, name) {
+    const product = products.find(product => product.name === name);
+
+    if (product) {
+        return product;
+    }
+
+    return "Товар не знайдено";
+}
+
+const availableProducts = getAvailableProducts(products);
+const foundProduct = findProductByName(products, "Ноутбук");
+
+availableProducts.forEach(product => {
+    document.getElementById("availableProducts").innerHTML += `
+        <div class="item">
+            <strong>${product.name}</strong>
+            Категорія: ${product.category}<br>
+            Ціна: ${product.price} грн<br>
+            На складі: ${product.inStock} шт.
+        </div>
+    `;
+});
+
+document.getElementById("foundProduct").innerHTML = `
+    <div class="item">
+        <strong>${foundProduct.name}</strong>
+        Категорія: ${foundProduct.category}<br>
+        Ціна: ${foundProduct.price} грн<br>
+        На складі: ${foundProduct.inStock} шт.
+    </div>
+`;
+
+
+// =====================================================
+// 2. ГРУПУВАННЯ ТА СОРТУВАННЯ СТУДЕНТІВ
+// =====================================================
+
+const students = [
+    {
+        name: "Анна",
+        age: 18,
+        grade: 92,
+        group: "ПІ-21-01"
+    },
+    {
+        name: "Олег",
+        age: 19,
+        grade: 85,
+        group: "ПІ-22-01"
+    },
+    {
+        name: "Марія",
+        age: 18,
+        grade: 98,
+        group: "ПІ-23-01"
+    },
+    {
+        name: "Іван",
+        age: 20,
+        grade: 76,
+        group: "ПІ-22-01"
+    },
+    {
+        name: "Софія",
+        age: 19,
+        grade: 89,
+        group: "ПІ-23-03"
+    }
+];
+
+function groupBy(students) {
+
+    return students.reduce((groups, student) => {
+
+        if (!groups[student.group]) {
+            groups[student.group] = [];
+        }
+
+        groups[student.group].push(student);
+
+        return groups;
+
+    }, {});
+}
+
+function sortStudentsByGrade(students) {
+
+    return [...students].sort((a, b) => b.grade - a.grade);
+}
+
+const groupedStudents = groupBy(students);
+const sortedStudents = sortStudentsByGrade(students);
+
+for (const group in groupedStudents) {
+
+    document.getElementById("groupedStudents").innerHTML += `
+        <div class="item">
+            <strong>Група ${group}</strong>
+            ${groupedStudents[group]
+                .map(student =>
+                    `${student.name} — ${student.grade} балів`
+                )
+                .join("<br>")}
+        </div>
+    `;
+}
+
+sortedStudents.forEach((student, index) => {
+
+    document.getElementById("sortedStudents").innerHTML += `
+        <div class="item">
+            <strong>${index + 1}. ${student.name}</strong>
+            Група: ${student.group}<br>
+            Оцінка: ${student.grade}
+        </div>
+    `;
+});
+
+
+// =====================================================
+// 3. СТАТИСТИЧНИЙ АНАЛІЗ ПРАЦІВНИКІВ
+// =====================================================
+
+const employees = [
+    {
+        name: "Олена",
+        position: "Менеджер",
+        salary: 30000,
+        years: 3
+    },
+    {
+        name: "Андрій",
+        position: "Програміст",
+        salary: 45000,
+        years: 5
+    },
+    {
+        name: "Марія",
+        position: "Дизайнер",
+        salary: 35000,
+        years: 2
+    },
+    {
+        name: "Олександр",
+        position: "Аналітик",
+        salary: 40000,
+        years: 7
+    }
+];
+
+function getAverageSalary(employees) {
+
+    const totalSalary = employees.reduce(
+        (sum, employee) => sum + employee.salary,
+        0
+    );
+
+    return totalSalary / employees.length;
+}
+
+function findMostExperiencedEmployee(employees) {
+
+    return employees.reduce((mostExperienced, employee) => {
+
+        if (employee.years > mostExperienced.years) {
+            return employee;
+        }
+
+        return mostExperienced;
+
+    });
+}
+
+const averageSalary = getAverageSalary(employees);
+const mostExperienced = findMostExperiencedEmployee(employees);
+
+document.getElementById("averageSalary").textContent =
+    averageSalary + " грн";
+
+document.getElementById("experiencedEmployee").innerHTML = `
+    <div class="item">
+        <strong>${mostExperienced.name}</strong>
+        Посада: ${mostExperienced.position}<br>
+        Зарплата: ${mostExperienced.salary} грн<br>
+        Досвід: ${mostExperienced.years} років
+    </div>
+`;
+
+
+// =====================================================
+// 4. ОБРОБКА ТА АНАЛІЗ КНИГ
+// =====================================================
+
+const books = [
+    {
+        title: "Кобзар",
+        author: "Тарас Шевченко",
+        year: 1840,
+        rating: 5,
+        isRead: true
+    },
+    {
+        title: "Тигролови",
+        author: "Іван Багряний",
+        year: 1944,
+        rating: 4.5,
+        isRead: false
+    },
+    {
+        title: "Місто",
+        author: "Валер'ян Підмогильний",
+        year: 1928,
+        rating: 4.8,
+        isRead: true
+    },
+    {
+        title: "Intermezzo",
+        author: "Михайло Коцюбинський",
+        year: 1908,
+        rating: 4.2,
+        isRead: false
+    }
+];
+
+function getUnreadBooks(books) {
+
+    return books.reduce((result, book) => {
+
+        if (!book.isRead) {
+            result.push(book.title);
+        }
+
+        return result;
+
+    }, []);
+}
+
+function getBooksByAuthor(books, author) {
+
+    return books
+        .filter(book => book.author === author)
+        .sort((a, b) => a.year - b.year);
+}
+
+function getTopRatedBooks(books) {
+
+    return books
+        .filter(book => book.rating > 4)
+        .sort((a, b) => b.rating - a.rating);
+}
+
+const unreadBooks = getUnreadBooks(books);
+const authorBooks = getBooksByAuthor(books, "Тарас Шевченко");
+const topBooks = getTopRatedBooks(books);
+
+unreadBooks.forEach(title => {
+
+    document.getElementById("unreadBooks").innerHTML += `
+        <div class="item">
+            ${title}
+        </div>
+    `;
+});
+
+authorBooks.forEach(book => {
+
+    document.getElementById("authorBooks").innerHTML += `
+        <div class="item">
+            <strong>${book.title}</strong>
+            Рік видання: ${book.year}<br>
+            Рейтинг: ${book.rating}
+        </div>
+    `;
+});
+
+topBooks.forEach(book => {
+
+    document.getElementById("topBooks").innerHTML += `
+        <div class="item">
+            <strong>${book.title}</strong>
+            Автор: ${book.author}<br>
+            Рік: ${book.year}<br>
+            Рейтинг: ${book.rating}
+        </div>
+    `;
+});
+
+
+// =====================================================
+// 5. АНАЛІЗ ЗАМОВЛЕНЬ
+// =====================================================
+
+const orders = [
+    {
+        orderId: 1,
+        customer: {
+            name: "Анна",
+            email: "anna@gmail.com"
+        },
+        items: ["Ноутбук", "Мишка"],
+        total: 32000
+    },
+    {
+        orderId: 2,
+        customer: {
+            name: "Олег",
+            email: "oleg@gmail.com"
+        },
+        items: ["Телефон"],
+        total: 20000
+    },
+    {
+        orderId: 3,
+        customer: {
+            name: "Анна",
+            email: "anna@gmail.com"
+        },
+        items: ["Навушники"],
+        total: 2500
+    }
+];
+
+function getTotalSpentByCustomer(orders, customerName) {
+
+    return orders
+        .filter(order => order.customer.name === customerName)
+        .reduce((total, order) => total + order.total, 0);
+}
+
+const annaSpent = getTotalSpentByCustomer(orders, "Анна");
+
+document.getElementById("customerSpent").textContent =
+    "Анна витратила: " + annaSpent + " грн";
+
+
+// =====================================================
+// 6. ОБ'ЄДНАННЯ ТОВАРІВ І ПОКУПОК
+// =====================================================
+
+const productsForSales = [
+    {
+        productId: 1,
+        name: "Ноутбук",
+        price: 30000
+    },
+    {
+        productId: 2,
+        name: "Телефон",
+        price: 20000
+    },
+    {
+        productId: 3,
+        name: "Навушники",
+        price: 2500
+    }
+];
+
+const purchases = [
+    {
+        purchaseId: 1,
+        productId: 1,
+        quantity: 2
+    },
+    {
+        purchaseId: 2,
+        productId: 2,
+        quantity: 3
+    },
+    {
+        purchaseId: 3,
+        productId: 3,
+        quantity: 4
+    },
+    {
+        purchaseId: 4,
+        productId: 1,
+        quantity: 1
+    }
+];
+
+function getTotalSales(products, purchases) {
+
+    return purchases.reduce((sales, purchase) => {
+
+        const product = products.find(
+            product => product.productId === purchase.productId
+        );
+
+        const total = product.price * purchase.quantity;
+
+        if (!sales[product.name]) {
+            sales[product.name] = 0;
+        }
+
+        sales[product.name] += total;
+
+        return sales;
+
+    }, {});
+}
+
+const totalSales = getTotalSales(
+    productsForSales,
+    purchases
+);
+
+for (const productName in totalSales) {
+
+    document.getElementById("totalSales").innerHTML += `
+        <div class="item">
+            <strong>${productName}</strong>
+            Дохід від продажів: ${totalSales[productName]} грн
+        </div>
+    `;
+}
+
+</script>
+
+</body>
+</html>
+
