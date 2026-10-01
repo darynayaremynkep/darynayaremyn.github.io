@@ -1,0 +1,754 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Лабораторна робота №3</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f4f6f8;
+            color: #222;
+        }
+
+        header {
+            background: #222;
+            color: white;
+            text-align: center;
+            padding: 40px 20px;
+        }
+
+        header h1 {
+            margin: 0 0 10px;
+        }
+
+        header p {
+            margin: 0;
+            color: #ccc;
+        }
+
+        main {
+            max-width: 1000px;
+            margin: 30px auto;
+            padding: 0 20px;
+        }
+
+        .level-title {
+            margin-top: 40px;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #333;
+        }
+
+        .task {
+            background: white;
+            padding: 25px;
+            margin-bottom: 25px;
+            border-radius: 12px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+        }
+
+        .task h3 {
+            margin-top: 0;
+        }
+
+        .description {
+            color: #666;
+        }
+
+        button {
+            padding: 10px 18px;
+            border: none;
+            border-radius: 6px;
+            background: #333;
+            color: white;
+            cursor: pointer;
+            margin: 5px 5px 5px 0;
+        }
+
+        button:hover {
+            background: #555;
+        }
+
+        input {
+            padding: 9px;
+            margin: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .result {
+            margin-top: 15px;
+            padding: 15px;
+            background: #f5f5f5;
+            border-left: 4px solid #555;
+            border-radius: 5px;
+            min-height: 20px;
+        }
+
+        .number {
+            font-size: 30px;
+            font-weight: bold;
+            margin: 15px 0;
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            color: #777;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h1>Лабораторна робота №3</h1>
+</header>
+
+
+<main>
+
+    <!-- ================================================= -->
+    <!-- РІВЕНЬ 4-6 -->
+    <!-- ================================================= -->
+
+    <h2 class="level-title">Рівень 4–6 балів</h2>
+
+
+    <!-- Завдання 1 -->
+
+    <section class="task">
+        <h3>1. Привітання користувача</h3>
+
+        <p class="description">
+            Програма запитує ім'я, прізвище та вік користувача
+            і формує повідомлення за допомогою окремих функцій.
+        </p>
+
+        <button onclick="runGreeting()">
+            Запустити програму
+        </button>
+
+        <div id="greetingResult" class="result"></div>
+    </section>
+
+
+    <!-- Завдання 2 -->
+
+    <section class="task">
+        <h3>2. Визначення оцінки студента</h3>
+
+        <p class="description">
+            Програма визначає текстову оцінку студента
+            залежно від отриманого бала.
+        </p>
+
+        <button onclick="runStudentInfo()">
+            Ввести дані студента
+        </button>
+
+        <div id="studentResult" class="result"></div>
+    </section>
+
+
+    <!-- Завдання 3 -->
+
+    <section class="task">
+        <h3>3. Калькулятор чайових</h3>
+
+        <p class="description">
+            Програма розраховує чайові у розмірі 10% від суми рахунку.
+        </p>
+
+        <button onclick="runTipCalculator()">
+            Розрахувати чайові
+        </button>
+
+        <div id="tipResult" class="result"></div>
+    </section>
+
+
+    <!-- ================================================= -->
+    <!-- РІВЕНЬ 7-9 -->
+    <!-- ================================================= -->
+
+    <h2 class="level-title">Рівень 7–9 балів</h2>
+
+
+    <!-- Завдання 1 -->
+
+    <section class="task">
+        <h3>1. Таймер з callback-функцією</h3>
+
+        <p class="description">
+            Повідомлення з'явиться через задану кількість секунд,
+            після чого буде викликано callback-функцію.
+        </p>
+
+        <input
+            type="number"
+            id="timerSeconds"
+            placeholder="Секунди"
+            min="1"
+        >
+
+        <input
+            type="text"
+            id="timerMessage"
+            placeholder="Повідомлення"
+        >
+
+        <button onclick="runTimer()">
+            Запустити таймер
+        </button>
+
+        <div id="timerResult" class="result"></div>
+    </section>
+
+
+    <!-- Завдання 2 -->
+
+    <section class="task">
+        <h3>2. Калькулятор операцій</h3>
+
+        <p class="description">
+            Функція calculate() виконує математичну операцію
+            над двома числами.
+        </p>
+
+        <button onclick="runCalculator()">
+            Запустити калькулятор
+        </button>
+
+        <div id="calculatorResult" class="result"></div>
+    </section>
+
+
+    <!-- Завдання 3 -->
+
+    <section class="task">
+        <h3>3. Лічильник із замиканням</h3>
+
+        <p class="description">
+            Внутрішня змінна count зберігає своє значення
+            між викликами функції.
+        </p>
+
+        <button onclick="clickCounter()">
+            Збільшити лічильник
+        </button>
+
+        <button onclick="resetCounter()">
+            Створити новий лічильник
+        </button>
+
+        <div id="counterResult" class="result">
+            Лічильник: 0
+        </div>
+    </section>
+
+
+    <!-- ================================================= -->
+    <!-- РІВЕНЬ 10-12 -->
+    <!-- ================================================= -->
+
+    <h2 class="level-title">Рівень 10–12 балів</h2>
+
+
+    <!-- Завдання 1 -->
+
+    <section class="task">
+        <h3>1. Генератор випадкових чисел</h3>
+
+        <p class="description">
+            Введіть мінімальне та максимальне значення.
+            Кожне натискання кнопки генерує нове випадкове число.
+        </p>
+
+        <input
+            type="number"
+            id="minNumber"
+            placeholder="Мінімум"
+        >
+
+        <input
+            type="number"
+            id="maxNumber"
+            placeholder="Максимум"
+        >
+
+        <button onclick="createRandomGenerator()">
+            Створити генератор
+        </button>
+
+        <button onclick="nextRandomNumber()">
+            Next number
+        </button>
+
+        <div id="randomResult" class="result">
+            <div class="number" id="out">—</div>
+        </div>
+    </section>
+
+
+    <!-- Завдання 2 -->
+
+    <section class="task">
+        <h3>2. Генератор паролів</h3>
+
+        <p class="description">
+            Введіть символи по одному. Напишіть
+            <b>done</b>, щоб завершити формування пароля.
+        </p>
+
+        <button onclick="runPasswordGenerator()">
+            Створити пароль
+        </button>
+
+        <div id="passwordResult" class="result"></div>
+    </section>
+
+
+    <!-- Завдання 3 -->
+
+    <section class="task">
+        <h3>3. Генератор діалогів</h3>
+
+        <p class="description">
+            Простий діалог із користувачем, керований
+            кроками генератора.
+        </p>
+
+        <button onclick="runChatBot()">
+            Почати діалог
+        </button>
+
+        <div id="chatResult" class="result"></div>
+    </section>
+
+
+    <!-- Завдання 4 -->
+
+    <section class="task">
+        <h3>4. Втрата контексту методом</h3>
+
+        <p class="description">
+            Метод об'єкта використовується як обробник події.
+            Контекст <b>this</b> фіксується за допомогою bind().
+        </p>
+
+        <button onclick="setupHello()">
+            Ввести ім'я
+        </button>
+
+        <button id="hello">
+            Say
+        </button>
+
+        <div id="helloResult" class="result"></div>
+    </section>
+
+</main>
+
+
+
+<script>
+
+// =====================================================
+// РІВЕНЬ 4-6
+// =====================================================
+
+
+// 1. Привітання
+
+function getFullName(firstName, lastName) {
+    return firstName + " " + lastName;
+}
+
+function showGreeting(fullName, age) {
+    return "Hello, " + fullName + "! You are " + age + " years old.";
+}
+
+function runGreeting() {
+
+    const firstName = prompt("Введіть ім'я:");
+    const lastName = prompt("Введіть прізвище:");
+    const age = prompt("Введіть вік:");
+
+    const fullName = getFullName(firstName, lastName);
+
+    const message = showGreeting(fullName, age);
+
+    document.getElementById("greetingResult").textContent = message;
+}
+
+
+// 2. Оцінка студента
+
+function getStudentInfo() {
+
+    const name = prompt("Введіть ім'я студента:");
+    const score = Number(prompt("Введіть бал від 0 до 12:"));
+
+    return {
+        name: name,
+        score: score
+    };
+}
+
+function checkGrade(score) {
+
+    if (score >= 10 && score <= 12) {
+        return "Excellent";
+    }
+
+    if (score >= 7) {
+        return "Good";
+    }
+
+    if (score >= 4) {
+        return "Satisfactory";
+    }
+
+    return "Fail";
+}
+
+function showResult(name, grade) {
+
+    return "Student: " + name + "<br>" +
+           "Grade: " + grade;
+}
+
+function runStudentInfo() {
+
+    const student = getStudentInfo();
+
+    const grade = checkGrade(student.score);
+
+    document.getElementById("studentResult").innerHTML =
+        showResult(student.name, grade);
+}
+
+
+// 3. Чайові
+
+function calculateTip(amount, percent = 10) {
+    return amount * percent / 100;
+}
+
+function showTipResult(amount, tip, percent = 10) {
+
+    const total = amount + tip;
+
+    return "Bill: " + amount + " грн<br>" +
+           "Tip (" + percent + "%): " + tip + " грн<br>" +
+           "Total: " + total + " грн";
+}
+
+function runTipCalculator() {
+
+    const amount = Number(
+        prompt("Введіть суму рахунку:")
+    );
+
+    const tip = calculateTip(amount);
+
+    document.getElementById("tipResult").innerHTML =
+        showTipResult(amount, tip);
+}
+
+
+// =====================================================
+// РІВЕНЬ 7-9
+// =====================================================
+
+
+// 1. Callback і стрілкова функція
+
+function startGreetingTimer(message, seconds, callback) {
+
+    document.getElementById("timerResult").textContent =
+        "Очікування...";
+
+    setTimeout(() => {
+
+        document.getElementById("timerResult").textContent =
+            message;
+
+        callback();
+
+    }, seconds * 1000);
+}
+
+function runTimer() {
+
+    const seconds = Number(
+        document.getElementById("timerSeconds").value
+    );
+
+    const message =
+        document.getElementById("timerMessage").value;
+
+    if (!seconds || !message) {
+        alert("Введіть повідомлення та кількість секунд.");
+        return;
+    }
+
+    startGreetingTimer(message, seconds, () => {
+        alert("Time is up!");
+    });
+}
+
+
+// 2. Калькулятор
+
+function calculate(a, b, operation) {
+
+    switch (operation) {
+
+        case "+":
+            return a + b;
+
+        case "-":
+            return a - b;
+
+        case "*":
+            return a * b;
+
+        case "/":
+
+            if (b === 0) {
+                return "Ділення на нуль неможливе";
+            }
+
+            return a / b;
+
+        default:
+            return "Invalid operation";
+    }
+}
+
+function runCalculator() {
+
+    const a = Number(prompt("Введіть перше число:"));
+    const b = Number(prompt("Введіть друге число:"));
+
+    const operation = prompt(
+        "Введіть операцію: +, -, * або /"
+    );
+
+    const result = calculate(a, b, operation);
+
+    document.getElementById("calculatorResult").textContent =
+        "Результат: " + result;
+}
+
+
+// 3. Замикання
+
+function createClickCounter() {
+
+    let count = 0;
+
+    return function() {
+
+        count++;
+
+        return count;
+    };
+}
+
+let counter = createClickCounter();
+
+function clickCounter() {
+
+    const value = counter();
+
+    document.getElementById("counterResult").textContent =
+        "Лічильник: " + value;
+
+    console.log("Counter:", value);
+}
+
+function resetCounter() {
+
+    counter = createClickCounter();
+
+    document.getElementById("counterResult").textContent =
+        "Лічильник створено заново: 0";
+}
+
+
+// =====================================================
+// РІВЕНЬ 10-12
+// =====================================================
+
+
+// 1. Генератор випадкових чисел
+
+function* randomGenerator(min, max) {
+
+    while (true) {
+
+        const number =
+            Math.floor(Math.random() * (max - min + 1)) + min;
+
+        yield number;
+    }
+}
+
+let randomNumbers;
+
+function createRandomGenerator() {
+
+    const min = Number(
+        document.getElementById("minNumber").value
+    );
+
+    const max = Number(
+        document.getElementById("maxNumber").value
+    );
+
+    if (min >= max) {
+        alert("Мінімальне значення має бути меншим за максимальне.");
+        return;
+    }
+
+    randomNumbers = randomGenerator(min, max);
+
+    document.getElementById("out").textContent =
+        "Генератор створено";
+}
+
+function nextRandomNumber() {
+
+    if (!randomNumbers) {
+        alert("Спочатку створіть генератор.");
+        return;
+    }
+
+    const result = randomNumbers.next();
+
+    document.getElementById("out").textContent =
+        result.value;
+}
+
+
+// 2. Генератор паролів
+
+function* passwordGenerator() {
+
+    let password = "";
+
+    while (true) {
+
+        const symbol = yield password;
+
+        if (symbol === "done") {
+
+            return password;
+        }
+
+        password += symbol;
+    }
+}
+
+function runPasswordGenerator() {
+
+    const generator = passwordGenerator();
+
+    generator.next();
+
+    while (true) {
+
+        const symbol = prompt(
+            "Введіть символ для пароля.\n" +
+            "Напишіть 'done', щоб завершити."
+        );
+
+        const result = generator.next(symbol);
+
+        if (result.done) {
+
+            document.getElementById("passwordResult").textContent =
+                "Згенерований пароль: " + result.value;
+
+            break;
+        }
+    }
+}
+
+
+// 3. Генератор діалогів
+function* chatBot() {
+    const name = yield "Hi! What is your name?";
+    const answer = yield "Nice to meet you, " + name + "! How are you?";
+    yield "Goodbye!";
+}
+
+function runChatBot() {
+    const generator = chatBot();
+
+    // Перше повідомлення
+    const firstMessage = generator.next().value;
+    const name = prompt(firstMessage);
+
+    // Друге повідомлення
+    const secondMessage = generator.next(name).value;
+    const answer = prompt(secondMessage);
+
+    // Третє повідомлення
+    const goodbye = generator.next(answer).value;
+
+    document.getElementById("chatResult").innerHTML =
+        "<strong>Bot:</strong> " + firstMessage +
+        "<br><strong>You:</strong> " + name +
+        "<br><strong>Bot:</strong> " + secondMessage +
+        "<br><strong>You:</strong> " + answer +
+        "<br><strong>Bot:</strong> " + goodbye;
+}
+
+
+// 4. Втрата контексту this
+
+let userObject = null;
+
+function setupHello() {
+    // Запитуємо ім'я
+    const name = prompt("Введіть ваше ім'я:");
+
+    if (!name) {
+        return;
+    }
+
+    // Створюємо об'єкт
+    userObject = {
+        name: name,
+
+        say: function() {
+            document.getElementById("helloResult").textContent =
+                "Hello, " + this.name + "!";
+        }
+    };
+
+    // Без bind() this міг би втратити правильний контекст.
+    // bind() фіксує this для userObject.
+    document.getElementById("hello").onclick =
+        userObject.say.bind(userObject);
+
+    document.getElementById("helloResult").textContent =
+        "Ім'я збережено. Натисніть кнопку Say.";
+}
+
+</script>
+
+</body>
+</html>
