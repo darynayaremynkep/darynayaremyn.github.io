@@ -1,0 +1,1087 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>Лабораторна робота №4</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 30px;
+            background-color: #f2f2f2;
+        }
+
+        h1, h2 {
+            text-align: center;
+        }
+
+        section {
+            background-color: white;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+        }
+
+        button {
+            padding: 10px 15px;
+            margin: 5px;
+            cursor: pointer;
+        }
+
+        #booksOutput,
+        #meetingsOutput {
+            margin-top: 20px;
+            padding: 15px;
+        }
+
+        .item {
+            border-bottom: 1px solid #ccc;
+            padding: 10px 0;
+        }
+    </style>
+</head>
+
+<body>
+
+<h1>Лабораторна робота №4</h1>
+
+
+<!-- ===================================================== -->
+<!-- ПРИКЛАДИ  -->
+<!-- ===================================================== -->
+
+<section>
+
+    <h3>Завдання 1. Робота з об'єктами</h3>
+
+    <button onclick="showBook()">
+        Показати книгу
+    </button>
+
+    <button onclick="changeBookStatus()">
+        Змінити статус книги
+    </button>
+
+
+    <h3>Завдання 2. Робота з масивами та об'єктами</h3>
+
+    <button onclick="displayLibrary()">
+        Показати бібліотеку
+    </button>
+
+    <button onclick="addBook()">
+        Додати книгу
+    </button>
+
+
+    <h3>Завдання 3. Методи масивів</h3>
+
+    <button onclick="sortBooks()">
+        Сортувати за роком
+    </button>
+
+    <button onclick="showUnreadBooks()">
+        Показати непрочитані
+    </button>
+
+    <button onclick="findTolkien()">
+        Знайти книгу Tolkien
+    </button>
+
+
+    <div id="booksOutput"></div>
+
+</section>
+
+
+<!-- ===================================================== -->
+<!-- ІНДИВІДУАЛЬНЕ ЗАВДАННЯ -->
+<!-- ТЕМА: РОЗКЛАД ЗУСТРІЧЕЙ -->
+<!-- ===================================================== -->
+
+<section>
+
+    <p>
+        Предметна область: <b>Розклад зустрічей</b>
+    </p>
+
+    <p>
+        Об'єкти зустрічей мають властивості:
+        тема, дата, час, місце, чи проведено.
+    </p>
+
+
+    <h3>Робота з об'єктом</h3>
+
+    <button onclick="showMeeting()">
+        Показати зустріч
+    </button>
+
+    <button onclick="changeMeetingStatus()">
+        Змінити статус зустрічі
+    </button>
+
+
+    <h3>Робота з масивом зустрічей</h3>
+
+    <button onclick="displayMeetings()">
+        Показати всі зустрічі
+    </button>
+
+    <button onclick="addMeeting()">
+        Додати зустріч
+    </button>
+
+
+    <h3>Методи масивів</h3>
+
+    <button onclick="sortMeetings()">
+        Сортувати за датою
+    </button>
+
+    <button onclick="showUnheldMeetings()">
+        Показати непроведені
+    </button>
+
+    <button onclick="findMeeting()">
+        Знайти зустріч
+    </button>
+
+
+    <h3>Додаткові завдання</h3>
+
+    <button onclick="markFirstMeetingAsHeld()">
+        Провести першу зустріч
+    </button>
+
+    <button onclick="showAverageYear()">
+        Середній рік зустрічей
+    </button>
+
+
+    <div id="meetingsOutput"></div>
+
+</section>
+
+
+<script>
+
+
+// =========================================================
+// ЗАВДАННЯ 1. РОБОТА З ОБ'ЄКТАМИ
+// =========================================================
+
+
+// Створення об'єкта book
+
+let book = {
+
+    title: "Harry Potter and the Sorcerer's Stone",
+
+    author: "J.K. Rowling",
+
+    year: 1997,
+
+    isRead: true,
+
+
+    // Метод bookInfo
+
+    bookInfo: function () {
+
+        return `Назва: ${this.title},
+        Автор: ${this.author},
+        Рік видання: ${this.year},
+        Прочитана: ${this.isRead ? "Так" : "Ні"}`;
+
+    }
+
+};
+
+
+// Виведення інформації про книгу
+
+function showBook() {
+
+    document.getElementById("booksOutput").innerHTML = `
+        <h3>Інформація про книгу</h3>
+        <p>
+            Назва: ${book.title}<br>
+            Автор: ${book.author}<br>
+            Рік видання: ${book.year}<br>
+            Прочитана: ${book.isRead ? "Так" : "Ні"}
+        </p>
+    `;
+
+    console.log(book.bookInfo());
+
+}
+
+
+// Зміна isRead на протилежне значення
+
+function changeBookStatus() {
+
+    book.isRead = !book.isRead;
+
+    console.log("Після зміни статусу:");
+
+    console.log(book.bookInfo());
+
+    showBook();
+
+}
+
+
+// =========================================================
+// ЗАВДАННЯ 2
+// МАСИВ LIBRARY
+// =========================================================
+
+
+let library = [
+
+    {
+        title: "Harry Potter and the Sorcerer's Stone",
+        author: "J.K. Rowling",
+        year: 1997,
+        isRead: true,
+
+        bookInfo: function () {
+
+            return `Назва: ${this.title},
+            Автор: ${this.author},
+            Рік видання: ${this.year},
+            Прочитана: ${this.isRead ? "Так" : "Ні"}`;
+
+        }
+    },
+
+
+    {
+        title: "The Hobbit",
+        author: "J.R.R. Tolkien",
+        year: 1937,
+        isRead: false,
+
+        bookInfo: function () {
+
+            return `Назва: ${this.title},
+            Автор: ${this.author},
+            Рік видання: ${this.year},
+            Прочитана: ${this.isRead ? "Так" : "Ні"}`;
+
+        }
+    },
+
+
+    {
+        title: "The Lord of the Rings",
+        author: "J.R.R. Tolkien",
+        year: 1954,
+        isRead: false,
+
+        bookInfo: function () {
+
+            return `Назва: ${this.title},
+            Автор: ${this.author},
+            Рік видання: ${this.year},
+            Прочитана: ${this.isRead ? "Так" : "Ні"}`;
+
+        }
+    }
+
+];
+
+
+// =========================================================
+// displayLibrary()
+// =========================================================
+
+
+function displayLibrary() {
+
+    let output = document.getElementById("booksOutput");
+
+    output.innerHTML = "<h3>Бібліотека:</h3>";
+
+    library.forEach(function (book) {
+
+        output.innerHTML += `
+            <div class="item">
+
+                <b>Назва:</b> ${book.title}<br>
+
+                <b>Автор:</b> ${book.author}<br>
+
+                <b>Рік:</b> ${book.year}<br>
+
+                <b>Прочитана:</b>
+                ${book.isRead ? "Так" : "Ні"}
+
+            </div>
+        `;
+
+    });
+
+    console.log("Бібліотека:");
+
+    library.forEach(function (book) {
+
+        console.log(book.bookInfo());
+
+    });
+
+}
+
+
+// =========================================================
+// push()
+// Додавання нової книги
+// =========================================================
+
+
+function addBook() {
+
+    let title = prompt("Введіть назву книги:");
+
+    let author = prompt("Введіть автора:");
+
+    let year = Number(prompt("Введіть рік видання:"));
+
+    let isReadAnswer =
+        prompt("Чи прочитана книга? Введіть так або ні:");
+
+    let isRead =
+        isReadAnswer.toLowerCase() === "так";
+
+
+    let newBook = {
+
+        title: title,
+
+        author: author,
+
+        year: year,
+
+        isRead: isRead,
+
+
+        bookInfo: function () {
+
+            return `Назва: ${this.title},
+            Автор: ${this.author},
+            Рік видання: ${this.year},
+            Прочитана: ${this.isRead ? "Так" : "Ні"}`;
+
+        }
+
+    };
+
+
+    // Додавання до масиву
+
+    library.push(newBook);
+
+
+    // Виведення оновленого масиву
+
+    displayLibrary();
+
+}
+
+
+// =========================================================
+// sort()
+// Сортування книг за роком
+// =========================================================
+
+
+function sortBooks() {
+
+    library.sort(function (a, b) {
+
+        return a.year - b.year;
+
+    });
+
+
+    console.log("Книги після сортування:");
+
+    console.log(library);
+
+    displayLibrary();
+
+}
+
+
+// =========================================================
+// filter()
+// Пошук непрочитаних книг
+// =========================================================
+
+
+function showUnreadBooks() {
+
+    let unreadBooks = library.filter(function (book) {
+
+        return book.isRead === false;
+
+    });
+
+
+    console.log("Непрочитані книги:");
+
+    console.log(unreadBooks);
+
+
+    let output =
+        document.getElementById("booksOutput");
+
+    output.innerHTML =
+        "<h3>Непрочитані книги:</h3>";
+
+
+    unreadBooks.forEach(function (book) {
+
+        output.innerHTML += `
+            <div class="item">
+
+                <b>${book.title}</b><br>
+
+                Автор: ${book.author}<br>
+
+                Рік: ${book.year}
+
+            </div>
+        `;
+
+    });
+
+}
+
+
+// =========================================================
+// find()
+// Пошук книги J.R.R. Tolkien
+// =========================================================
+
+
+function findTolkien() {
+
+    let foundBook = library.find(function (book) {
+
+        return book.author === "J.R.R. Tolkien";
+
+    });
+
+
+    console.log("Книга J.R.R. Tolkien:");
+
+    console.log(foundBook);
+
+
+    let output =
+        document.getElementById("booksOutput");
+
+
+    if (foundBook) {
+
+        output.innerHTML = `
+            <h3>Знайдена книга:</h3>
+
+            <p>
+
+                Назва: ${foundBook.title}<br>
+
+                Автор: ${foundBook.author}<br>
+
+                Рік: ${foundBook.year}<br>
+
+                Прочитана:
+                ${foundBook.isRead ? "Так" : "Ні"}
+
+            </p>
+        `;
+
+    }
+
+}
+
+
+// =========================================================
+// ІНДИВІДУАЛЬНЕ ЗАВДАННЯ
+// РОЗКЛАД ЗУСТРІЧЕЙ
+// =========================================================
+
+
+// =========================================================
+// Створення об'єкта meeting
+// =========================================================
+
+
+let meeting = {
+
+    topic: "Обговорення проєкту",
+
+    date: "2026-10-10",
+
+    time: "10:00",
+
+    place: "Аудиторія 205",
+
+    held: false,
+
+
+    // Метод для виведення інформації
+
+    meetingInfo: function () {
+
+        return `Тема: ${this.topic},
+        Дата: ${this.date},
+        Час: ${this.time},
+        Місце: ${this.place},
+        Проведено: ${this.held ? "Так" : "Ні"}`;
+
+    },
+
+
+    // Додаткове завдання
+    // markAsHeld
+
+    markAsHeld: function () {
+
+        this.held = true;
+
+    }
+
+};
+
+
+// =========================================================
+// Виведення об'єкта meeting
+// =========================================================
+
+
+function showMeeting() {
+
+    document.getElementById("meetingsOutput").innerHTML = `
+
+        <h3>Інформація про зустріч</h3>
+
+        <p>
+
+            <b>Тема:</b> ${meeting.topic}<br>
+
+            <b>Дата:</b> ${meeting.date}<br>
+
+            <b>Час:</b> ${meeting.time}<br>
+
+            <b>Місце:</b> ${meeting.place}<br>
+
+            <b>Проведено:</b>
+            ${meeting.held ? "Так" : "Ні"}
+
+        </p>
+
+    `;
+
+
+    console.log(meeting.meetingInfo());
+
+}
+
+
+// =========================================================
+// Зміна held на протилежне значення
+// =========================================================
+
+
+function changeMeetingStatus() {
+
+    meeting.held = !meeting.held;
+
+    console.log("Після зміни статусу:");
+
+    console.log(meeting.meetingInfo());
+
+    showMeeting();
+
+}
+
+
+// =========================================================
+// Масив meetings
+// Мінімум 3 об'єкти
+// =========================================================
+
+
+let meetings = [
+
+    {
+
+        topic: "Зустріч з викладачем",
+
+        date: "2026-10-12",
+
+        time: "10:00",
+
+        place: "Аудиторія 301",
+
+        held: false,
+
+
+        meetingInfo: function () {
+
+            return `Тема: ${this.topic},
+            Дата: ${this.date},
+            Час: ${this.time},
+            Місце: ${this.place},
+            Проведено: ${this.held ? "Так" : "Ні"}`;
+
+        },
+
+
+        markAsHeld: function () {
+
+            this.held = true;
+
+        }
+
+    },
+
+
+    {
+
+        topic: "Командна зустріч",
+
+        date: "2026-10-08",
+
+        time: "14:30",
+
+        place: "Онлайн",
+
+        held: true,
+
+
+        meetingInfo: function () {
+
+            return `Тема: ${this.topic},
+            Дата: ${this.date},
+            Час: ${this.time},
+            Місце: ${this.place},
+            Проведено: ${this.held ? "Так" : "Ні"}`;
+
+        },
+
+
+        markAsHeld: function () {
+
+            this.held = true;
+
+        }
+
+    },
+
+
+    {
+
+        topic: "Захист лабораторної роботи",
+
+        date: "2026-10-20",
+
+        time: "12:00",
+
+        place: "Аудиторія 205",
+
+        held: false,
+
+
+        meetingInfo: function () {
+
+            return `Тема: ${this.topic},
+            Дата: ${this.date},
+            Час: ${this.time},
+            Місце: ${this.place},
+            Проведено: ${this.held ? "Так" : "Ні"}`;
+
+        },
+
+
+        markAsHeld: function () {
+
+            this.held = true;
+
+        }
+
+    }
+
+];
+
+
+// =========================================================
+// displayMeetings()
+// Перебирання масиву
+// =========================================================
+
+
+function displayMeetings() {
+
+    let output =
+        document.getElementById("meetingsOutput");
+
+
+    output.innerHTML =
+        "<h3>Розклад зустрічей:</h3>";
+
+
+    meetings.forEach(function (meeting) {
+
+        output.innerHTML += `
+
+            <div class="item">
+
+                <b>Тема:</b>
+                ${meeting.topic}<br>
+
+                <b>Дата:</b>
+                ${meeting.date}<br>
+
+                <b>Час:</b>
+                ${meeting.time}<br>
+
+                <b>Місце:</b>
+                ${meeting.place}<br>
+
+                <b>Проведено:</b>
+                ${meeting.held ? "Так" : "Ні"}
+
+            </div>
+
+        `;
+
+    });
+
+
+    console.log("Розклад зустрічей:");
+
+    meetings.forEach(function (meeting) {
+
+        console.log(meeting.meetingInfo());
+
+    });
+
+}
+
+
+// =========================================================
+// push()
+// Додавання нової зустрічі
+// =========================================================
+
+
+function addMeeting() {
+
+    let topic =
+        prompt("Введіть тему зустрічі:");
+
+    let date =
+        prompt("Введіть дату зустрічі (YYYY-MM-DD):");
+
+    let time =
+        prompt("Введіть час зустрічі:");
+
+    let place =
+        prompt("Введіть місце зустрічі:");
+
+    let heldAnswer =
+        prompt(
+            "Чи проведено зустріч? Введіть так або ні:"
+        );
+
+
+    let held =
+        heldAnswer.toLowerCase() === "так";
+
+
+    let newMeeting = {
+
+        topic: topic,
+
+        date: date,
+
+        time: time,
+
+        place: place,
+
+        held: held,
+
+
+        meetingInfo: function () {
+
+            return `Тема: ${this.topic},
+            Дата: ${this.date},
+            Час: ${this.time},
+            Місце: ${this.place},
+            Проведено: ${this.held ? "Так" : "Ні"}`;
+
+        },
+
+
+        markAsHeld: function () {
+
+            this.held = true;
+
+        }
+
+    };
+
+
+    // Додавання зустрічі
+
+    meetings.push(newMeeting);
+
+
+    // Виведення оновленого списку
+
+    displayMeetings();
+
+}
+
+
+// =========================================================
+// sort()
+// Сортування зустрічей за датою
+// =========================================================
+
+
+function sortMeetings() {
+
+    meetings.sort(function (a, b) {
+
+        return new Date(a.date) - new Date(b.date);
+
+    });
+
+
+    console.log("Зустрічі після сортування:");
+
+    console.log(meetings);
+
+
+    displayMeetings();
+
+}
+
+
+// =========================================================
+// filter()
+// Пошук непроведених зустрічей
+// =========================================================
+
+
+function showUnheldMeetings() {
+
+    let unheldMeetings =
+        meetings.filter(function (meeting) {
+
+            return meeting.held === false;
+
+        });
+
+
+    console.log("Непроведені зустрічі:");
+
+    console.log(unheldMeetings);
+
+
+    let output =
+        document.getElementById("meetingsOutput");
+
+
+    output.innerHTML =
+        "<h3>Непроведені зустрічі:</h3>";
+
+
+    unheldMeetings.forEach(function (meeting) {
+
+        output.innerHTML += `
+
+            <div class="item">
+
+                <b>Тема:</b>
+                ${meeting.topic}<br>
+
+                <b>Дата:</b>
+                ${meeting.date}<br>
+
+                <b>Час:</b>
+                ${meeting.time}<br>
+
+                <b>Місце:</b>
+                ${meeting.place}
+
+            </div>
+
+        `;
+
+    });
+
+}
+
+
+// =========================================================
+// find()
+// Пошук зустрічі за темою
+// =========================================================
+
+
+function findMeeting() {
+
+    let topic =
+        prompt("Введіть тему зустрічі для пошуку:");
+
+
+    let foundMeeting =
+        meetings.find(function (meeting) {
+
+            return meeting.topic.toLowerCase() ===
+                   topic.toLowerCase();
+
+        });
+
+
+    console.log("Результат пошуку:");
+
+    console.log(foundMeeting);
+
+
+    let output =
+        document.getElementById("meetingsOutput");
+
+
+    if (foundMeeting) {
+
+        output.innerHTML = `
+
+            <h3>Знайдена зустріч:</h3>
+
+            <div class="item">
+
+                <b>Тема:</b>
+                ${foundMeeting.topic}<br>
+
+                <b>Дата:</b>
+                ${foundMeeting.date}<br>
+
+                <b>Час:</b>
+                ${foundMeeting.time}<br>
+
+                <b>Місце:</b>
+                ${foundMeeting.place}<br>
+
+                <b>Проведено:</b>
+                ${foundMeeting.held ? "Так" : "Ні"}
+
+            </div>
+
+        `;
+
+    } else {
+
+        output.innerHTML =
+            "<p>Зустріч не знайдено.</p>";
+
+    }
+
+}
+
+
+// =========================================================
+// ДОДАТКОВЕ ЗАВДАННЯ
+// markAsHeld
+// =========================================================
+
+
+function markFirstMeetingAsHeld() {
+
+    if (meetings.length === 0) {
+
+        return;
+
+    }
+
+
+    meetings[0].markAsHeld();
+
+
+    alert(
+        `Зустріч "${meetings[0].topic}"
+        позначено як проведену.`
+    );
+
+
+    displayMeetings();
+
+}
+
+function calculateAverageYear() {
+
+    if (meetings.length === 0) {
+
+        return 0;
+
+    }
+
+
+    let totalYear = 0;
+
+
+    meetings.forEach(function (meeting) {
+
+        let year =
+            new Date(meeting.date).getFullYear();
+
+        totalYear += year;
+
+    });
+
+
+    return totalYear / meetings.length;
+
+}
+
+
+// =========================================================
+// Виведення середнього року
+// =========================================================
+
+
+function showAverageYear() {
+
+    let averageYear =
+        calculateAverageYear();
+
+
+    document.getElementById("meetingsOutput").innerHTML = `
+
+        <h3>Середній рік проведення зустрічей:</h3>
+
+        <p>
+            ${averageYear.toFixed(2)}
+        </p>
+
+    `;
+
+
+    console.log(
+        "Середній рік зустрічей:",
+        averageYear
+    );
+
+}
+
+</script>
+
+</body>
+</html>
