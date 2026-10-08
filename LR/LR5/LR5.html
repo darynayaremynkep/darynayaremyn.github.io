@@ -1,0 +1,1202 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Лабораторна робота №5</title>
+
+    <style>
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            margin: 30px;
+            color: #222;
+        }
+
+        h1, h2 {
+            text-align: center;
+        }
+
+        section {
+            background-color: white;
+            padding: 25px;
+            margin: 25px auto;
+            max-width: 900px;
+            border-radius: 10px;
+        }
+
+        input {
+            padding: 8px;
+            margin: 5px;
+            font-size: 16px;
+        }
+
+        button {
+            padding: 9px 15px;
+            margin: 5px;
+            cursor: pointer;
+            font-size: 15px;
+        }
+
+        .result {
+            margin-top: 15px;
+            padding: 10px;
+            font-weight: bold;
+        }
+
+
+        /* =====================================
+           ЗАВДАННЯ 2
+           Таблиця множення
+           ===================================== */
+
+        #multiplicationTask {
+            font-size: 24px;
+            font-weight: bold;
+            margin: 15px 0;
+        }
+
+
+        /* =====================================
+           ЗАВДАННЯ 3
+           Радіокнопки
+           ===================================== */
+
+        #radioTask {
+            font-size: 24px;
+            font-weight: bold;
+            margin: 15px 0;
+        }
+
+        #radioAnswers label {
+            display: block;
+            margin: 8px;
+            padding: 8px;
+        }
+
+
+        /* =====================================
+           ЗАВДАННЯ 4
+           ФОТОРОТАТОР
+           ===================================== */
+
+        #rotator {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        #rotatorCounter {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        #rotatorImage {
+            width: 600px;
+            max-width: 100%;
+            height: 350px;
+            object-fit: contain;
+            border-radius: 10px;
+            background-color: #eeeeee;
+            border: 1px solid #ccc;
+        }
+
+        #rotatorTitle {
+            font-size: 22px;
+            font-weight: bold;
+            margin-top: 15px;
+        }
+
+        #rotatorDescription {
+            font-size: 17px;
+            margin: 10px;
+        }
+
+        .rotatorLinks {
+            margin: 15px;
+        }
+
+        .rotatorLinks a {
+            margin: 20px;
+            cursor: pointer;
+            color: blue;
+            text-decoration: underline;
+        }
+
+
+        /* =====================================
+           ЗАВДАННЯ 5
+           CAPTCHA
+           ===================================== */
+
+        #captcha {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 20px 0;
+            padding: 15px;
+            background-color: #eeeeee;
+            border-radius: 8px;
+        }
+
+        .captchaPixel {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+
+            width: 40px;
+            height: 50px;
+
+            margin: 3px;
+
+            background-color: #222;
+            color: white;
+
+            font-size: 28px;
+            font-weight: bold;
+
+            border-radius: 5px;
+        }
+
+        #captchaResult {
+            font-weight: bold;
+            margin-top: 15px;
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+<h1>Лабораторна робота №5</h1>
+
+<!-- ================================================= -->
+<!-- ЗАВДАННЯ 1 -->
+<!-- ================================================= -->
+
+<section>
+
+    <h2>Завдання 1. Конвертер температури</h2>
+
+    <p>
+        Введіть температуру в одному з полів.
+        Друге поле буде розраховане автоматично.
+    </p>
+
+    <label>
+        Фаренгейт:
+        <input
+            type="number"
+            id="fahrenheit"
+            placeholder="F"
+        >
+    </label>
+
+    <br>
+
+    <label>
+        Цельсій:
+        <input
+            type="number"
+            id="celsius"
+            placeholder="C"
+        >
+    </label>
+
+    <div
+        id="temperatureResult"
+        class="result">
+    </div>
+
+</section>
+
+
+<!-- ================================================= -->
+<!-- ЗАВДАННЯ 2 -->
+<!-- ================================================= -->
+
+<section>
+
+    <h2>Завдання 2. Таблиця множення</h2>
+
+    <p>
+        Загальний рахунок:
+        <span id="score">0</span>
+    </p>
+
+    <div id="multiplicationTask">
+        Натисніть «Наступне завдання»
+    </div>
+
+    <input
+        type="number"
+        id="multiplicationAnswer"
+        placeholder="Ваша відповідь"
+    >
+
+    <br>
+
+    <button id="nextTask">
+        Наступне завдання
+    </button>
+
+    <button id="checkAnswer">
+        Перевірити
+    </button>
+
+    <div
+        id="multiplicationResult"
+        class="result">
+    </div>
+
+</section>
+
+
+<!-- ================================================= -->
+<!-- ЗАВДАННЯ 3 -->
+<!-- ================================================= -->
+
+<section>
+
+    <h2>Завдання 3. Таблиця множення з радіокнопками</h2>
+
+    <p>
+        За кожне завдання можна вибрати лише одну відповідь.
+    </p>
+
+    <div id="radioTask">
+        Натисніть «Нове завдання»
+    </div>
+
+    <div id="radioAnswers"></div>
+
+    <button id="newRadioTask">
+        Нове завдання
+    </button>
+
+    <div
+        id="radioResult"
+        class="result">
+    </div>
+
+</section>
+
+
+<!-- ================================================= -->
+<!-- ЗАВДАННЯ 4 -->
+<!-- ================================================= -->
+
+<section>
+
+    <h2>Завдання 4. Галерея клавіатур</h2>
+
+    <p>
+        Варіант №15 — <b>Клавіатури</b>
+    </p>
+
+    <div id="rotator"></div>
+
+</section>
+
+
+<!-- ================================================= -->
+<!-- ЗАВДАННЯ 5 -->
+<!-- ================================================= -->
+
+<section>
+
+    <h2>Завдання 5. CAPTCHA</h2>
+
+    <p>
+        Введіть число, яке відображене на CAPTCHA.
+    </p>
+
+    <div id="captcha"></div>
+
+    <input
+        type="text"
+        id="captchaInput"
+        placeholder="Введіть CAPTCHA"
+    >
+
+    <button id="checkCaptcha">
+        Перевірити
+    </button>
+
+    <button id="newCaptcha">
+        Нова CAPTCHA
+    </button>
+
+    <div
+        id="captchaResult"
+        class="result">
+    </div>
+
+</section>
+
+
+<script>
+
+
+// =========================================================
+// ЗАВДАННЯ 1
+// КОНВЕРТЕР ТЕМПЕРАТУРИ
+// =========================================================
+
+
+// Отримуємо елементи
+
+let fahrenheit =
+    document.getElementById("fahrenheit");
+
+let celsius =
+    document.getElementById("celsius");
+
+let temperatureResult =
+    document.getElementById("temperatureResult");
+
+
+// Функція переведення Fahrenheit -> Celsius
+
+function convertFahrenheitToCelsius() {
+
+    let F = parseFloat(fahrenheit.value);
+
+    if (isNaN(F)) {
+        return;
+    }
+
+    let C = 5 / 9 * (F - 32);
+
+    celsius.value = C.toFixed(2);
+
+    temperatureResult.textContent =
+        `${F} °F = ${C.toFixed(2)} °C`;
+}
+
+
+// Функція переведення Celsius -> Fahrenheit
+
+function convertCelsiusToFahrenheit() {
+
+    let C = parseFloat(celsius.value);
+
+    if (isNaN(C)) {
+        return;
+    }
+
+    let F = C * 9 / 5 + 32;
+
+    fahrenheit.value = F.toFixed(2);
+
+    temperatureResult.textContent =
+        `${C} °C = ${F.toFixed(2)} °F`;
+}
+
+
+// Подія input спрацьовує при зміні значення
+
+fahrenheit.addEventListener(
+    "input",
+    convertFahrenheitToCelsius
+);
+
+celsius.addEventListener(
+    "input",
+    convertCelsiusToFahrenheit
+);
+
+
+// =========================================================
+// ЗАВДАННЯ 2
+// ТАБЛИЦЯ МНОЖЕННЯ
+// =========================================================
+
+
+let number1;
+let number2;
+
+let score = 0;
+
+let taskAnswered = false;
+
+
+// Генерування нового завдання
+
+function generateMultiplicationTask() {
+
+    number1 =
+        Math.floor(Math.random() * 9) + 1;
+
+    number2 =
+        Math.floor(Math.random() * 9) + 1;
+
+    taskAnswered = false;
+
+    document.getElementById(
+        "multiplicationTask"
+    ).textContent =
+        `${number1} × ${number2} = ?`;
+
+    document.getElementById(
+        "multiplicationAnswer"
+    ).value = "";
+
+    document.getElementById(
+        "multiplicationResult"
+    ).textContent = "";
+}
+
+
+// Перевірка відповіді
+
+function checkMultiplicationAnswer() {
+
+    if (taskAnswered) {
+
+        document.getElementById(
+            "multiplicationResult"
+        ).textContent =
+            "Це завдання вже перевірено.";
+
+        return;
+    }
+
+
+    let answer =
+        Number(
+            document.getElementById(
+                "multiplicationAnswer"
+            ).value
+        );
+
+
+    if (
+        document.getElementById(
+            "multiplicationAnswer"
+        ).value === ""
+    ) {
+
+        document.getElementById(
+            "multiplicationResult"
+        ).textContent =
+            "Введіть відповідь.";
+
+        return;
+    }
+
+
+    let correctAnswer =
+        number1 * number2;
+
+
+    if (answer === correctAnswer) {
+
+        score++;
+
+        document.getElementById(
+            "multiplicationResult"
+        ).textContent =
+            "Правильно!";
+
+    } else {
+
+        document.getElementById(
+            "multiplicationResult"
+        ).textContent =
+            `Неправильно. Правильна відповідь: ${correctAnswer}`;
+
+    }
+
+
+    document.getElementById(
+        "score"
+    ).textContent = score;
+
+
+    taskAnswered = true;
+}
+
+
+// Обробники подій
+
+document.getElementById(
+    "nextTask"
+).addEventListener(
+    "click",
+    generateMultiplicationTask
+);
+
+
+document.getElementById(
+    "checkAnswer"
+).addEventListener(
+    "click",
+    checkMultiplicationAnswer
+);
+
+
+// =========================================================
+// ЗАВДАННЯ 3
+// ТАБЛИЦЯ МНОЖЕННЯ З РАДІОКНОПКАМИ
+// =========================================================
+
+
+let radioNumber1;
+let radioNumber2;
+
+let radioCorrectAnswer;
+
+
+// Генерування завдання
+
+function generateRadioTask() {
+
+    radioNumber1 =
+        Math.floor(Math.random() * 9) + 1;
+
+    radioNumber2 =
+        Math.floor(Math.random() * 9) + 1;
+
+
+    radioCorrectAnswer =
+        radioNumber1 * radioNumber2;
+
+
+    document.getElementById(
+        "radioTask"
+    ).textContent =
+        `${radioNumber1} × ${radioNumber2} = ?`;
+
+
+    let answers =
+        generateAnswers(radioCorrectAnswer);
+
+
+    let container =
+        document.getElementById(
+            "radioAnswers"
+        );
+
+
+    // Очищаємо старі відповіді
+
+    container.innerHTML = "";
+
+
+    // Створюємо радіокнопки
+
+    answers.forEach(function (answer, index) {
+
+        let label =
+            document.createElement("label");
+
+
+        let radio =
+            document.createElement("input");
+
+
+        radio.type = "radio";
+
+        radio.name = "multiplicationRadio";
+
+        radio.value = answer;
+
+
+        label.appendChild(radio);
+
+        label.appendChild(
+            document.createTextNode(
+                " " + answer
+            )
+        );
+
+
+        container.appendChild(label);
+
+
+        // Вибір відповіді одразу перевіряє її
+
+        radio.addEventListener(
+            "change",
+            function () {
+
+                checkRadioAnswer(answer);
+
+            }
+        );
+
+    });
+
+
+    document.getElementById(
+        "radioResult"
+    ).textContent = "";
+
+}
+
+
+// Генерування варіантів відповідей
+
+function generateAnswers(correctAnswer) {
+
+    let answers = [correctAnswer];
+
+
+    while (answers.length < 4) {
+
+        let wrongAnswer =
+            Math.floor(
+                Math.random() * 81
+            ) + 1;
+
+
+        if (
+            !answers.includes(wrongAnswer)
+        ) {
+
+            answers.push(wrongAnswer);
+
+        }
+
+    }
+
+
+    // Перемішування
+
+    answers.sort(
+        () => Math.random() - 0.5
+    );
+
+
+    return answers;
+}
+
+
+// Перевірка вибраної відповіді
+
+function checkRadioAnswer(answer) {
+
+    let result =
+        document.getElementById(
+            "radioResult"
+        );
+
+
+    if (answer === radioCorrectAnswer) {
+
+        result.textContent =
+            "Правильно!";
+
+    } else {
+
+        result.textContent =
+            `Неправильно. Правильна відповідь: ${radioCorrectAnswer}`;
+
+    }
+
+
+    // Після вибору блокуємо всі радіокнопки
+
+    let radios =
+        document.querySelectorAll(
+            'input[name="multiplicationRadio"]'
+        );
+
+
+    radios.forEach(function (radio) {
+
+        radio.disabled = true;
+
+    });
+
+}
+
+
+// Кнопка нового завдання
+
+document.getElementById(
+    "newRadioTask"
+).addEventListener(
+    "click",
+    generateRadioTask
+);
+
+
+// =========================================================
+// ЗАВДАННЯ 4
+// ФОТОРОТАТОР
+// ВАРІАНТ №15 — КЛАВІАТУРИ
+// =========================================================
+
+
+// Масив об'єктів зображень
+
+let imagesArray = [
+
+    {
+        path:
+            "image/01.jpg",
+
+        title:
+            "Механічна клавіатура",
+
+        description:
+            "Механічна клавіатура з RGB-підсвічуванням."
+    },
+
+
+    {
+        path:
+            "image/02.jpg",
+
+        title:
+            "Ігрова клавіатура",
+
+        description:
+            "Клавіатура для комп'ютерних ігор."
+    },
+
+
+    {
+        path:
+            "image/03.jpg",
+
+        title:
+            "Компактна клавіатура",
+
+        description:
+            "Компактна клавіатура для зручної роботи."
+    },
+
+
+    {
+        path:
+            "image/04.jpg",
+
+        title:
+            "Біла клавіатура",
+
+        description:
+            "Сучасна клавіатура білого кольору."
+    }
+
+];
+
+
+// Поточний індекс
+
+let currentImage = 0;
+
+
+// =========================================================
+// initPhotoRotator()
+// =========================================================
+
+
+function initPhotoRotator(
+    containerId,
+    images
+) {
+
+    let container =
+        document.getElementById(
+            containerId
+        );
+
+
+    // Очищення контейнера
+
+    container.innerHTML = "";
+
+
+    // -----------------------------------------------------
+    // Лічильник
+    // -----------------------------------------------------
+
+    let counter =
+        document.createElement("div");
+
+    counter.id = "rotatorCounter";
+
+
+    // -----------------------------------------------------
+    // Зображення
+    // -----------------------------------------------------
+
+    let image =
+        document.createElement("img");
+
+    image.id = "rotatorImage";
+
+    image.alt = "Клавіатура";
+
+
+    // -----------------------------------------------------
+    // Назва
+    // -----------------------------------------------------
+
+    let title =
+        document.createElement("div");
+
+    title.id = "rotatorTitle";
+
+
+    // -----------------------------------------------------
+    // Опис
+    // -----------------------------------------------------
+
+    let description =
+        document.createElement("div");
+
+    description.id =
+        "rotatorDescription";
+
+
+    // -----------------------------------------------------
+    // Блок посилань
+    // -----------------------------------------------------
+
+    let links =
+        document.createElement("div");
+
+    links.className =
+        "rotatorLinks";
+
+
+    // -----------------------------------------------------
+    // Посилання "Назад"
+    // -----------------------------------------------------
+
+    let back =
+        document.createElement("a");
+
+    back.textContent = "Назад";
+
+    back.href = "#";
+
+
+    // -----------------------------------------------------
+    // Посилання "Вперед"
+    // -----------------------------------------------------
+
+    let forward =
+        document.createElement("a");
+
+    forward.textContent = "Вперед";
+
+    forward.href = "#";
+
+
+    // -----------------------------------------------------
+    // Додаємо елементи
+    // -----------------------------------------------------
+
+    links.appendChild(back);
+
+    links.appendChild(forward);
+
+
+    container.appendChild(counter);
+
+    container.appendChild(image);
+
+    container.appendChild(title);
+
+    container.appendChild(description);
+
+    container.appendChild(links);
+
+
+    // -----------------------------------------------------
+    // Функція відображення зображення
+    // -----------------------------------------------------
+
+    function showImage() {
+
+        let current =
+            images[currentImage];
+
+
+        counter.textContent =
+            `${currentImage + 1} / ${images.length}`;
+
+
+        image.src =
+            current.path;
+
+
+        image.alt =
+            current.title;
+
+
+        title.textContent =
+            current.title;
+
+
+        description.textContent =
+            current.description;
+
+
+        // Для першого зображення
+        // приховуємо "Назад"
+
+        if (currentImage === 0) {
+
+            back.style.visibility =
+                "hidden";
+
+        } else {
+
+            back.style.visibility =
+                "visible";
+
+        }
+
+
+        // Для останнього зображення
+        // приховуємо "Вперед"
+
+        if (
+            currentImage ===
+            images.length - 1
+        ) {
+
+            forward.style.visibility =
+                "hidden";
+
+        } else {
+
+            forward.style.visibility =
+                "visible";
+
+        }
+
+    }
+
+
+    // -----------------------------------------------------
+    // Кнопка "Назад"
+    // -----------------------------------------------------
+
+    back.addEventListener(
+        "click",
+        function (event) {
+
+            event.preventDefault();
+
+
+            if (currentImage > 0) {
+
+                currentImage--;
+
+                showImage();
+
+            }
+
+        }
+    );
+
+
+    // -----------------------------------------------------
+    // Кнопка "Вперед"
+    // -----------------------------------------------------
+
+    forward.addEventListener(
+        "click",
+        function (event) {
+
+            event.preventDefault();
+
+
+            if (
+                currentImage <
+                images.length - 1
+            ) {
+
+                currentImage++;
+
+                showImage();
+
+            }
+
+        }
+    );
+
+
+    // Перше зображення
+
+    showImage();
+
+}
+
+
+// Запуск ротатора
+
+initPhotoRotator(
+    "rotator",
+    imagesArray
+);
+
+
+// =========================================================
+// ЗАВДАННЯ 5
+// CAPTCHA
+// =========================================================
+
+
+// Змінна для правильної CAPTCHA
+
+let captchaCode = "";
+
+
+// =========================================================
+// Функція ініціалізації CAPTCHA
+// =========================================================
+
+
+function initCaptcha(numberOfDigits) {
+
+    captchaCode = "";
+
+
+    let captcha =
+        document.getElementById(
+            "captcha"
+        );
+
+
+    // Очищення попередньої CAPTCHA
+
+    captcha.innerHTML = "";
+
+
+    // Генерування цифр
+
+    for (
+        let i = 0;
+        i < numberOfDigits;
+        i++
+    ) {
+
+        let digit =
+            Math.floor(
+                Math.random() * 10
+            );
+
+
+        captchaCode += digit;
+
+
+        // Створюємо span
+
+        let span =
+            document.createElement("span");
+
+
+        span.className =
+            "captchaPixel";
+
+
+        span.textContent =
+            digit;
+
+
+        // Додаємо span у CAPTCHA
+
+        captcha.appendChild(span);
+
+    }
+
+
+    document.getElementById(
+        "captchaInput"
+    ).value = "";
+
+
+    document.getElementById(
+        "captchaResult"
+    ).textContent = "";
+
+}
+
+
+// =========================================================
+// Перевірка CAPTCHA
+// =========================================================
+
+
+function checkCaptcha() {
+
+    let userAnswer =
+        document.getElementById(
+            "captchaInput"
+        ).value;
+
+
+    let result =
+        document.getElementById(
+            "captchaResult"
+        );
+
+
+    if (userAnswer === "") {
+
+        result.textContent =
+            "Введіть CAPTCHA.";
+
+        return;
+    }
+
+
+    if (userAnswer === captchaCode) {
+
+        result.textContent =
+            "CAPTCHA введено правильно!";
+
+    } else {
+
+        result.textContent =
+            "Неправильно! Спробуйте ще раз.";
+
+    }
+
+}
+
+
+// Кнопка перевірки
+
+document.getElementById(
+    "checkCaptcha"
+).addEventListener(
+    "click",
+    checkCaptcha
+);
+
+
+// Кнопка нової CAPTCHA
+
+document.getElementById(
+    "newCaptcha"
+).addEventListener(
+    "click",
+    function () {
+
+        initCaptcha(5);
+
+    }
+);
+
+
+// Початкова CAPTCHA
+
+initCaptcha(5);
+
+
+</script>
+
+</body>
+</html>
