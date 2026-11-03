@@ -1,0 +1,48 @@
+
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Моя корзина — Маленьке диво</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="header">
+    <a href="index.html" class="logo">🧸 Маленьке диво</a>
+
+    <nav>
+        <a href="index.html#catalog">Каталог</a>
+        <a href="index.html#about">Про нас</a>
+    </nav>
+
+    <a href="cart.html" class="cart-link">
+        🛒 <span id="cart-count">0</span>
+    </a>
+</header>
+
+<main class="cart-page">
+    <h1>Моя корзина 🛒</h1>
+    <p class="section-description">Ваші обрані товари</p>
+
+    <div id="cart-content"></div>
+
+    <div class="cart-actions">
+        <a href="index.html" class="secondary-button">
+            ← Повернутись до покупок
+        </a>
+
+        <button class="pay-button" onclick="payForOrder()">
+            Оплатити
+        </button>
+    </div>
+</main>
+
+<footer>
+    © 2026 Маленьке диво. Усі права захищені.
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

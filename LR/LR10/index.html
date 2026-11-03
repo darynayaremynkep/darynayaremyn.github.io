@@ -1,0 +1,167 @@
+
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Маленьке диво — дитячі товари</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="header">
+    <a href="index.html" class="logo">🧸 Маленьке диво</a>
+
+    <nav>
+        <a href="#catalog">Каталог</a>
+        <a href="#about">Про нас</a>
+    </nav>
+
+    <a href="cart.html" class="cart-link">
+        🛒 <span id="cart-count">0</span>
+    </a>
+</header>
+
+<section class="hero">
+    <div>
+        <p class="hero-label">Магазин дитячих товарів</p>
+        <h1>Усе найкраще<br>для маленьких мрійників!</h1>
+        <p>Іграшки, одяг та товари для щасливого дитинства.</p>
+        <a href="#catalog" class="hero-button">Переглянути товари</a>
+    </div>
+    <div class="hero-image">🧸 🎈 🧩</div>
+</section>
+
+<main id="catalog" class="catalog">
+    <h2>Наші товари</h2>
+    <p class="section-description">Обирайте найкраще для своїх малюків</p>
+
+    <div class="products">
+
+        <div class="product-card">
+            <div class="product-image">
+                <img src="image/1.jpg" alt="М'який ведмедик" class="product-image">
+            </div>
+            <span class="category">Іграшки</span>
+            <h3>М'який ведмедик</h3>
+            <p class="price">450 грн</p>
+            <button onclick="openQuantityModal(1)">
+                Додати у корзину
+            </button>
+        </div>
+
+        <div class="product-card">
+            <div class="product-image">
+                <img src="image/2.jpg" alt="Машинка дитяча" class="product-image">
+            </div>
+            <span class="category">Іграшки</span>
+            <h3>Машинка дитяча</h3>
+            <p class="price">280 грн</p>
+            <button onclick="openQuantityModal(2)">
+                Додати у корзину
+            </button>
+        </div>
+
+        <div class="product-card">
+            <div class="product-image">
+                <img src="image/3.jpg" alt="Дитячий пазл" class="product-image">
+            </div>
+            <span class="category">Розвиток</span>
+            <h3>Дитячий пазл</h3>
+            <p class="price">190 грн</p>
+            <button onclick="openQuantityModal(3)">
+                Додати у корзину
+            </button>
+        </div>
+
+        <div class="product-card">
+            <div class="product-image">
+                <img src="image/4.jpg" alt="Набір для малювання" class="product-image">
+            </div>
+            <span class="category">Творчість</span>
+            <h3>Набір для малювання</h3>
+            <p class="price">320 грн</p>
+            <button onclick="openQuantityModal(4)">
+                Додати у корзину
+            </button>
+        </div>
+
+        <div class="product-card">
+            <div class="product-image">
+                <img src="image/5.jpg" alt="Дитячий рюкзак" class="product-image">
+            </div>
+            <span class="category">Аксесуари</span>
+            <h3>Дитячий рюкзак</h3>
+            <p class="price">590 грн</p>
+            <button onclick="openQuantityModal(5)">
+                Додати у корзину
+            </button>
+        </div>
+
+        <div class="product-card">
+            <div class="product-image">
+                <img src="image/6.jpg" alt="Дитяча ковдра" class="product-image">
+            </div>
+            <span class="category">Для малюків</span>
+            <h3>Дитяча ковдра</h3>
+            <p class="price">420 грн</p>
+            <button onclick="openQuantityModal(6)">
+                Додати у корзину
+            </button>
+        </div>
+
+    </div>
+</main>
+
+<section id="about" class="about">
+    <h2>Маленьке диво</h2>
+    <p>Магазин товарів для дітей, де кожна покупка дарує радість!</p>
+</section>
+
+<footer>
+    © 2026 Маленьке диво. Усі права захищені.
+</footer>
+
+<!-- Модальне вікно вибору кількості -->
+<div id="modal" class="modal">
+    <div class="modal-content">
+        <button class="close-button" onclick="closeModal()">×</button>
+        <h2 id="modal-title">Вкажіть кількість:</h2>
+
+        <input type="number" id="quantity" min="1" value="1">
+
+        <button id="confirm-button" onclick="addToCart()">
+            Додати до корзини
+        </button>
+    </div>
+</div>
+
+<!-- Модальне вікно успішного додавання -->
+<div id="success-modal" class="modal">
+    <div class="modal-content">
+        <div class="success-icon">✓</div>
+        <h2>Товар додано!</h2>
+        <p>Ваш товар успішно додано до корзини.</p>
+
+        <a href="cart.html" class="modal-button">
+            Перейти у корзину
+        </a>
+
+        <button class="secondary-button" onclick="closeSuccessModal()">
+            Повернутись до покупок
+        </button>
+    </div>
+</div>
+
+<!-- Модальне вікно порожньої корзини -->
+<div id="empty-modal" class="modal">
+    <div class="modal-content">
+        <h2>Корзина пуста 🛒</h2>
+        <p>Додайте товари, щоб оформити замовлення.</p>
+        <button onclick="closeEmptyModal()">Зрозуміло</button>
+    </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
