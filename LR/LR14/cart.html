@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Моя корзина — Маленьке диво</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="header">
+    <a href="index.html" class="logo" data-i18n="logo">🧸 Маленьке диво</a>
+
+    <nav>
+        <a href="index.html#catalog" data-i18n="navCatalog">Каталог</a>
+        <a href="index.html#about" data-i18n="navAbout">Про нас</a>
+    </nav>
+
+    <div class="header-right">
+        <select id="language-select" onchange="changeLanguage(this.value)">
+            <option value="uk">UA</option>
+            <option value="en">EN</option>
+        </select>
+
+        <a href="cart.html" class="cart-link">
+            🛒 <span id="cart-count">0</span>
+        </a>
+    </div>
+</header>
+
+<main class="cart-page">
+    <h1 data-i18n="cartTitle">Моя корзина 🛒</h1>
+    <p class="section-description" data-i18n="cartSubtitle">Ваші обрані товари</p>
+
+    <div id="cart-content"></div>
+
+    <div class="cart-actions">
+        <a href="index.html" class="secondary-button" data-i18n="backToShopping">
+            ← Повернутись до покупок
+        </a>
+
+        <button class="pay-button" onclick="payForOrder()" data-i18n="payButton">
+            Оплатити
+        </button>
+    </div>
+</main>
+
+<div id="language-modal" class="modal">
+    <div class="modal-content">
+        <h2>Оберіть мову / Choose language</h2>
+        <p>Будь ласка, оберіть зручну мову інтерфейсу:</p>
+        <div class="language-buttons">
+            <button class="pay-button" onclick="selectInitialLanguage('uk')">Українська UA</button>
+            <button class="pay-button" onclick="selectInitialLanguage('en')">English EN</button>
+        </div>
+    </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

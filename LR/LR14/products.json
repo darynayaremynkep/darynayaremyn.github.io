@@ -1,0 +1,172 @@
+{
+  "translations": {
+    "uk": {
+      "pageTitle": "Маленьке диво — дитячі товари",
+      "logo": "🧸 Маленьке диво",
+      "navCatalog": "Каталог",
+      "navAbout": "Про нас",
+      "heroLabel": "Магазин дитячих товарів",
+      "heroTitle": "Усе найкраще<br>для маленьких мрійників!",
+      "heroSubtitle": "Іграшки, одяг та товари для щасливого дитинства.",
+      "heroBtn": "Переглянути товари",
+      "catalogTitle": "Наші товари",
+      "catalogDesc": "Обирайте найкраще для своїх малюків",
+      "addToCart": "Додати у корзину",
+      "modalQtyTitle": "Вкажіть кількість:",
+      "modalQtyBtn": "Додати до корзини",
+      "successTitle": "Товар додано!",
+      "successDesc": "Ваш товар успішно додано до корзини.",
+      "goToCart": "Перейти у корзину",
+      "continueShopping": "Повернутись до покупок",
+      "emptyTitle": "Корзина пуста 🛒",
+      "emptyDesc": "Додайте товари, щоб оформити замовлення.",
+      "understandBtn": "Зрозуміло",
+      "aboutTitle": "Маленьке диво",
+      "aboutDesc": "Магазин товарів для дітей, де кожна покупка дарує радість!",
+      "cartTitle": "Моя корзина 🛒",
+      "cartSubtitle": "Ваші обрані товари",
+      "backToShopping": "← Повернутись до покупок",
+      "payButton": "Оплатити",
+      "cartEmptyStateTitle": "Ваша корзина поки порожня",
+      "cartEmptyStateDesc": "Знайдіть щось цікаве для свого малюка!",
+      "tableNum": "№",
+      "tableName": "Назва товару",
+      "tablePrice": "Ціна за одиницю",
+      "tableQty": "Кількість",
+      "tableSum": "Сума",
+      "tableAction": "Дія",
+      "deleteBtn": "Видалити",
+      "totalPay": "Разом до оплати",
+      "paySuccess": "Дякуємо за замовлення! Оплату успішно оформлено.",
+      "cartEmptyAlert": "Корзина пуста!",
+      "currency": "грн"
+    },
+    "en": {
+      "pageTitle": "Little Wonder — Kids Shop",
+      "logo": "🧸 Little Wonder",
+      "navCatalog": "Catalog",
+      "navAbout": "About Us",
+      "heroLabel": "Kids Goods Shop",
+      "heroTitle": "All the best<br>for little dreamers!",
+      "heroSubtitle": "Toys, clothes, and goods for a happy childhood.",
+      "heroBtn": "View Products",
+      "catalogTitle": "Our Products",
+      "catalogDesc": "Choose the best for your little ones",
+      "addToCart": "Add to Cart",
+      "modalQtyTitle": "Enter quantity:",
+      "modalQtyBtn": "Add to Cart",
+      "successTitle": "Product added!",
+      "successDesc": "Your item has been successfully added to the cart.",
+      "goToCart": "Go to Cart",
+      "continueShopping": "Back to Shopping",
+      "emptyTitle": "Cart is empty 🛒",
+      "emptyDesc": "Add items to place an order.",
+      "understandBtn": "Got it",
+      "aboutTitle": "Little Wonder",
+      "aboutDesc": "A shop for children's products where every purchase brings joy!",
+      "cartTitle": "My Cart 🛒",
+      "cartSubtitle": "Your selected items",
+      "backToShopping": "← Back to Shopping",
+      "payButton": "Pay",
+      "cartEmptyStateTitle": "Your cart is currently empty",
+      "cartEmptyStateDesc": "Find something nice for your little one!",
+      "tableNum": "№",
+      "tableName": "Product Name",
+      "tablePrice": "Price per unit",
+      "tableQty": "Quantity",
+      "tableSum": "Subtotal",
+      "tableAction": "Action",
+      "deleteBtn": "Remove",
+      "totalPay": "Total amount",
+      "paySuccess": "Thank you for your order! Payment processed successfully.",
+      "cartEmptyAlert": "Cart is empty!",
+      "currency": "UAH"
+    }
+  },
+  "products": [
+    {
+      "id": 1,
+      "name": {
+        "uk": "М'який ведмедик",
+        "en": "Teddy Bear"
+      },
+      "category": {
+        "uk": "Іграшки",
+        "en": "Toys"
+      },
+      "price": 450,
+      "image": "image/1.jpg",
+      "emoji": "🧸"
+    },
+    {
+      "id": 2,
+      "name": {
+        "uk": "Машинка дитяча",
+        "en": "Toy Car"
+      },
+      "category": {
+        "uk": "Іграшки",
+        "en": "Toys"
+      },
+      "price": 280,
+      "image": "image/2.jpg",
+      "emoji": "🚗"
+    },
+    {
+      "id": 3,
+      "name": {
+        "uk": "Дитячий пазл",
+        "en": "Kids Puzzle"
+      },
+      "category": {
+        "uk": "Розвиток",
+        "en": "Development"
+      },
+      "price": 190,
+      "image": "image/3.jpg",
+      "emoji": "🧩"
+    },
+    {
+      "id": 4,
+      "name": {
+        "uk": "Набір для малювання",
+        "en": "Drawing Set"
+      },
+      "category": {
+        "uk": "Творчість",
+        "en": "Creativity"
+      },
+      "price": 320,
+      "image": "image/4.jpg",
+      "emoji": "🎨"
+    },
+    {
+      "id": 5,
+      "name": {
+        "uk": "Дитячий рюкзак",
+        "en": "Kids Backpack"
+      },
+      "category": {
+        "uk": "Аксесуари",
+        "en": "Accessories"
+      },
+      "price": 590,
+      "image": "image/5.jpg",
+      "emoji": "🎒"
+    },
+    {
+      "id": 6,
+      "name": {
+        "uk": "Дитяча ковдра",
+        "en": "Baby Blanket"
+      },
+      "category": {
+        "uk": "Для малюків",
+        "en": "For Babies"
+      },
+      "price": 420,
+      "image": "image/6.jpg",
+      "emoji": "👶"
+    }
+  ]
+}

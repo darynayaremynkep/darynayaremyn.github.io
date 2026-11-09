@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Маленьке диво — дитячі товари</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="header">
+    <a href="index.html" class="logo" data-i18n="logo">🧸 Маленьке диво</a>
+
+    <nav>
+        <a href="#catalog" data-i18n="navCatalog">Каталог</a>
+        <a href="#about" data-i18n="navAbout">Про нас</a>
+    </nav>
+
+    <div class="header-right">
+        <select id="language-select" onchange="changeLanguage(this.value)">
+            <option value="uk">UA</option>
+            <option value="en">EN</option>
+        </select>
+
+        <a href="cart.html" class="cart-link">
+            🛒 <span id="cart-count">0</span>
+        </a>
+    </div>
+</header>
+
+<section class="hero">
+    <div>
+        <p class="hero-label" data-i18n="heroLabel">Магазин дитячих товарів</p>
+        <h1 data-i18n="heroTitle">Усе найкраще<br>для маленьких мрійників!</h1>
+        <p data-i18n="heroSubtitle">Іграшки, одяг та товари для щасливого дитинства.</p>
+        <a href="#catalog" class="hero-button" data-i18n="heroBtn">Переглянути товари</a>
+    </div>
+    <div class="hero-image">🧸 🎈 🧩</div>
+</section>
+
+<main id="catalog" class="catalog">
+    <h2 data-i18n="catalogTitle">Наші товари</h2>
+    <p class="section-description" data-i18n="catalogDesc">Обирайте найкраще для своїх малюків</p>
+
+    <div class="products"></div>
+</main>
+
+<section id="about" class="about">
+    <h2 data-i18n="aboutTitle">Маленьке диво</h2>
+    <p data-i18n="aboutDesc">Магазин товарів для дітей, де кожна покупка дарує радість!</p>
+</section>
+
+<div id="language-modal" class="modal">
+    <div class="modal-content">
+        <h2>Оберіть мову / Choose language</h2>
+        <p>Будь ласка, оберіть зручну мову інтерфейсу:</p>
+        <div class="language-buttons">
+            <button class="pay-button" onclick="selectInitialLanguage('uk')">Українська UA</button>
+            <button class="pay-button" onclick="selectInitialLanguage('en')">English EN</button>
+        </div>
+    </div>
+</div>
+
+<div id="modal" class="modal">
+    <div class="modal-content">
+        <button class="close-button" onclick="closeModal()">×</button>
+        <h2 id="modal-title" data-i18n="modalQtyTitle">Вкажіть кількість:</h2>
+
+        <input type="number" id="quantity" min="1" value="1">
+
+        <button id="confirm-button" onclick="addToCart()" data-i18n="modalQtyBtn">
+            Додати до корзини
+        </button>
+    </div>
+</div>
+
+<div id="success-modal" class="modal">
+    <div class="modal-content">
+        <div class="success-icon">✓</div>
+        <h2 data-i18n="successTitle">Товар додано!</h2>
+        <p data-i18n="successDesc">Ваш товар успішно додано до корзини.</p>
+
+        <a href="cart.html" class="modal-button" data-i18n="goToCart">
+            Перейти у корзину
+        </a>
+
+        <button class="secondary-button" onclick="closeSuccessModal()" data-i18n="continueShopping">
+            Повернутись до покупок
+        </button>
+    </div>
+</div>
+
+<div id="empty-modal" class="modal">
+    <div class="modal-content">
+        <h2 data-i18n="emptyTitle">Корзина пуста 🛒</h2>
+        <p data-i18n="emptyDesc">Додайте товари, щоб оформити замовлення.</p>
+        <button onclick="closeEmptyModal()" data-i18n="understandBtn">Зрозуміло</button>
+    </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
