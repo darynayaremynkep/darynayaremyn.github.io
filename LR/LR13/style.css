@@ -1,0 +1,398 @@
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #fffaf5;
+    color: #39332f;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* Шапка */
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 7%;
+    background: white;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+}
+
+.logo {
+    font-size: 23px;
+    font-weight: bold;
+    color: #b66d68;
+}
+
+nav {
+    display: flex;
+    gap: 30px;
+}
+
+nav a:hover {
+    color: #c77c75;
+}
+
+.cart-link {
+    font-size: 22px;
+    background: #fff0eb;
+    padding: 9px 15px;
+    border-radius: 20px;
+}
+
+#cart-count {
+    font-size: 14px;
+    color: white;
+    background: #c77c75;
+    border-radius: 50%;
+    padding: 4px 8px;
+}
+
+/* Головний блок */
+.hero {
+    min-height: 330px;
+    padding: 55px 10%;
+    background: #f9e6df;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 25px;
+}
+
+.hero-label {
+    color: #b66d68;
+    font-weight: bold;
+    letter-spacing: 2px;
+    font-size: 13px;
+    text-transform: uppercase;
+}
+
+.hero h1 {
+    font-size: 38px;
+    color: #744b49;
+    margin: 15px 0;
+}
+
+.hero p {
+    line-height: 1.6;
+}
+
+.hero-image {
+    font-size: 65px;
+    padding: 30px;
+}
+
+.hero-button,
+.modal-button {
+    display: inline-block;
+    padding: 12px 22px;
+    background: #c77c75;
+    color: white;
+    border-radius: 7px;
+    margin-top: 15px;
+}
+
+/* Каталог */
+.catalog {
+    max-width: 1150px;
+    margin: 55px auto;
+    padding: 0 20px;
+}
+
+.catalog h2,
+.about h2 {
+    text-align: center;
+    font-size: 29px;
+    color: #744b49;
+}
+
+.section-description {
+    text-align: center;
+    color: #888;
+    margin-bottom: 30px;
+}
+
+.products {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+.product-card {
+    background: white;
+    padding: 22px;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 3px 15px rgba(0,0,0,0.06);
+    transition: transform 0.2s;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+}
+
+.product-image {
+    height: 145px;
+    background: #fff1e9;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 75px;
+}
+
+.category {
+    display: inline-block;
+    margin-top: 15px;
+    color: #b77b73;
+    font-size: 13px;
+}
+
+.product-card h3 {
+    margin: 12px 0;
+}
+
+.price {
+    font-size: 19px;
+    font-weight: bold;
+    color: #b66d68;
+}
+
+button {
+    cursor: pointer;
+    border: none;
+    font-family: inherit;
+}
+
+.product-card button,
+.pay-button {
+    background: #c77c75;
+    color: white;
+    padding: 12px 18px;
+    border-radius: 7px;
+    font-size: 14px;
+    width: 100%;
+}
+
+.product-card button:hover,
+.pay-button:hover,
+.hero-button:hover,
+.modal-button:hover {
+    background: #a95e58;
+}
+
+/* Про нас */
+.about {
+    text-align: center;
+    padding: 40px 20px;
+    background: #f9e6df;
+}
+
+.about p {
+    color: #765e59;
+}
+
+
+/* Модальні вікна */
+.modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.5);
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+    padding: 15px;
+}
+
+.modal-content {
+    position: relative;
+    background: white;
+    padding: 35px;
+    width: 100%;
+    max-width: 400px;
+    border-radius: 14px;
+    text-align: center;
+}
+
+.modal-content h2 {
+    color: #744b49;
+}
+
+.close-button {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    background: none;
+    font-size: 27px;
+    color: #888;
+}
+
+#quantity {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    margin: 20px 0;
+    border: 1px solid #ddd;
+    border-radius: 7px;
+    font-size: 16px;
+}
+
+#confirm-button {
+    width: 100%;
+    background: #c77c75;
+    color: white;
+    padding: 13px;
+    border-radius: 7px;
+}
+
+.success-icon {
+    width: 55px;
+    height: 55px;
+    background: #e4f5e7;
+    color: #48a45a;
+    font-size: 35px;
+    border-radius: 50%;
+    margin: auto;
+}
+
+.secondary-button {
+    display: inline-block;
+    background: #f2e8e5;
+    color: #744b49;
+    padding: 12px 18px;
+    border-radius: 7px;
+    text-align: center;
+    margin-top: 10px;
+}
+
+/* Сторінка корзини */
+.cart-page {
+    max-width: 1000px;
+    min-height: 65vh;
+    margin: 50px auto;
+    padding: 0 20px;
+}
+
+.cart-page h1 {
+    text-align: center;
+    color: #744b49;
+}
+
+.cart-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    margin-top: 30px;
+}
+
+.cart-table th,
+.cart-table td {
+    padding: 15px;
+    border-bottom: 1px solid #eee;
+    text-align: center;
+}
+
+.cart-table th {
+    background: #f9e6df;
+}
+
+.cart-quantity {
+    width: 65px;
+    padding: 7px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.delete-button {
+    color: #c45d5d;
+    background: none;
+    font-size: 14px;
+    text-decoration: underline;
+}
+
+.cart-total {
+    text-align: right;
+    font-size: 22px;
+    font-weight: bold;
+    margin-top: 25px;
+    color: #744b49;
+}
+
+.cart-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    margin-top: 30px;
+}
+
+.pay-button {
+    width: auto;
+    min-width: 150px;
+}
+
+.empty-cart {
+    text-align: center;
+    padding: 50px 20px;
+    background: white;
+    border-radius: 12px;
+    margin-top: 25px;
+}
+
+.empty-cart-icon {
+    font-size: 60px;
+}
+
+@media (max-width: 700px) {
+    .header {
+        flex-wrap: wrap;
+        gap: 15px;
+    }
+
+    nav {
+        order: 3;
+        width: 100%;
+        justify-content: center;
+    }
+
+    .hero {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .hero h1 {
+        font-size: 29px;
+    }
+
+    .products {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .cart-table th,
+    .cart-table td {
+        padding: 8px 4px;
+        font-size: 12px;
+    }
+
+    .cart-actions {
+        flex-direction: column;
+    }
+
+    .cart-actions > * {
+        width: 100%;
+    }
+}
+
+@media (max-width: 450px) {
+    .products {
+        grid-template-columns: 1fr;
+    }
+}

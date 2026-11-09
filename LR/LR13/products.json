@@ -1,0 +1,53 @@
+{
+  "pageTitle": "Маленьке диво — дитячі товари",
+  "products": [
+    {
+      "id": 1,
+      "name": "М'який ведмедик",
+      "category": "Іграшки",
+      "price": 450,
+      "image": "image/1.jpg",
+      "emoji": "🧸"
+    },
+    {
+      "id": 2,
+      "name": "Машинка дитяча",
+      "category": "Іграшки",
+      "price": 280,
+      "image": "image/2.jpg",
+      "emoji": "🚗"
+    },
+    {
+      "id": 3,
+      "name": "Дитячий пазл",
+      "category": "Розвиток",
+      "price": 190,
+      "image": "image/3.jpg",
+      "emoji": "🧩"
+    },
+    {
+      "id": 4,
+      "name": "Набір для малювання",
+      "category": "Творчість",
+      "price": 320,
+      "image": "image/4.jpg",
+      "emoji": "🎨"
+    },
+    {
+      "id": 5,
+      "name": "Дитячий рюкзак",
+      "category": "Аксесуари",
+      "price": 590,
+      "image": "image/5.jpg",
+      "emoji": "🎒"
+    },
+    {
+      "id": 6,
+      "name": "Дитяча ковдра",
+      "category": "Для малюків",
+      "price": 420,
+      "image": "image/6.jpg",
+      "emoji": "👶"
+    }
+  ]
+}
